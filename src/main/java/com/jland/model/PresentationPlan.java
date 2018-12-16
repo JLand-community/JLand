@@ -2,22 +2,26 @@ package com.jland.model;
 
 import java.util.Objects;
 
-public class Point {
+public class PresentationPlan {
 
     private long id;
     private String item;
     private int order;
 
-    public Point() {
+    public PresentationPlan() {
     }
 
-    public Point(String item, int order) {
+    public PresentationPlan(String item, int order) {
         this.item = item;
         this.order = order;
     }
 
     public long getId() {
         return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getItem() {
@@ -39,8 +43,8 @@ public class Point {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Point)) return false;
-        Point point = (Point) o;
+        if (!(o instanceof PresentationPlan)) return false;
+        PresentationPlan point = (PresentationPlan) o;
         return getOrder() == point.getOrder() &&
                 Objects.equals(getItem(), point.getItem());
     }

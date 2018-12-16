@@ -6,21 +6,25 @@ import java.util.Objects;
 public class Presentation {
 
     private long id;
+    private Event event;
     private String name;
-    private List<Point> points;
+    private List<PresentationPlan> items;
     private User user;
-
-    public Presentation() {
-    }
-
-    public Presentation(String name, List<Point> points, User user) {
-        this.name = name;
-        this.points = points;
-        this.user = user;
-    }
 
     public long getId() {
         return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public Event getEvent() {
+        return event;
+    }
+
+    public void setEvent(Event event) {
+        this.event = event;
     }
 
     public String getName() {
@@ -31,12 +35,12 @@ public class Presentation {
         this.name = name;
     }
 
-    public List<Point> getPoints() {
-        return points;
+    public List<PresentationPlan> getItems() {
+        return items;
     }
 
-    public void setPoints(List<Point> points) {
-        this.points = points;
+    public void setItems(List<PresentationPlan> items) {
+        this.items = items;
     }
 
     public User getUser() {
@@ -52,22 +56,24 @@ public class Presentation {
         if (this == o) return true;
         if (!(o instanceof Presentation)) return false;
         Presentation that = (Presentation) o;
-        return Objects.equals(getName(), that.getName()) &&
-                Objects.equals(getPoints(), that.getPoints()) &&
+        return Objects.equals(getEvent(), that.getEvent()) &&
+                Objects.equals(getName(), that.getName()) &&
+                Objects.equals(getItems(), that.getItems()) &&
                 Objects.equals(getUser(), that.getUser());
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(getName(), getPoints(), getUser());
+        return Objects.hash(getEvent(), getName(), getItems(), getUser());
     }
 
     @Override
     public String toString() {
         return "Presentation{" +
-                "name='" + name + '\'' +
-                ", points=" + points +
+                "event=" + event +
+                ", name='" + name + '\'' +
+                ", items=" + items +
                 ", user=" + user +
                 '}';
     }

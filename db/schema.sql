@@ -18,7 +18,7 @@ create table if not exists jland_site.conference
 	id serial
 		constraint conference_id_pkey
 			primary key,
-			description varchar
+			description varchar,
 	date date,
 	address varchar(255)
 )
