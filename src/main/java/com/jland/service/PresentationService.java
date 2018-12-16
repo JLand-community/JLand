@@ -1,10 +1,10 @@
 package com.jland.service;
 
-import com.jland.model.Presentation;
+import com.jland.web.dto.PresentationDto;
 
 import java.util.List;
 
 public interface PresentationService {
 
-    List<Presentation> getAll();
+    List<PresentationDto> getPresentationsByConferenceId(Long conferenceId);
 }

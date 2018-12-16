@@ -3,7 +3,6 @@ package com.jland.repository.impl;
 import com.jland.model.PresentationPlan;
 import com.jland.repository.PresentationPlanRepository;
 import com.jland.repository.mapper.PresentationPlanMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 
@@ -16,9 +15,8 @@ public class PresentationPlanRepositoryImpl implements PresentationPlanRepositor
             "from presentation_plan " +
             "where presentation_id = :presentation_id order by 'order' asc;";
 
-    private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
+    private final NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
-    @Autowired
     public PresentationPlanRepositoryImpl(NamedParameterJdbcTemplate namedParameterJdbcTemplate) {
         this.namedParameterJdbcTemplate = namedParameterJdbcTemplate;
     }

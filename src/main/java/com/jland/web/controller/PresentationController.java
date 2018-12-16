@@ -1,10 +1,9 @@
 package com.jland.web.controller;
 
-import com.jland.model.Presentation;
 import com.jland.service.PresentationService;
+import com.jland.web.dto.PresentationDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -21,17 +20,16 @@ import java.util.List;
 public class PresentationController {
     private final Logger LOGGER = LoggerFactory.getLogger(getClass());
 
-    private PresentationService presentationService;
+    private final PresentationService presentationService;
 
-    @Autowired
     public PresentationController(PresentationService presentationService) {
         this.presentationService = presentationService;
     }
 
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(value = "/{presentationId}", method = RequestMethod.GET)
     @ResponseBody
-    public ResponseEntity<List<Presentation>> getAll() {
+    public ResponseEntity<List<PresentationDto>> getPresentationsByConferenceId(@PathVariable("presentationId") Long conferenceId) {
         LOGGER.info("Getting all presentations");
-            return new ResponseEntity<>(presentationService.getAll(), HttpStatus.OK);
+        return new ResponseEntity<>(presentationService.getPresentationsByConferenceId(conferenceId), HttpStatus.OK);
     }
 }
