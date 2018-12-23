@@ -1,7 +1,9 @@
 package com.jland.website.web.controller;
 
+import com.jland.website.service.PresentationPlanService;
 import com.jland.website.service.PresentationService;
 import com.jland.website.web.dto.PresentationDto;
+import com.jland.website.web.dto.PresentationPlanDto;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -29,6 +31,9 @@ class PresentationControllerTest {
     private MockMvc mockMvc;
     @Mock
     private PresentationService presentationService;
+
+    @Mock
+    private PresentationPlanService presentationPlanService;
     @InjectMocks
     private PresentationController controller;
 
@@ -45,7 +50,7 @@ class PresentationControllerTest {
         dto.setUserFirstName("Uname");
         dto.setUserLastName("ULname");
         List<PresentationDto> presentationDtos = Collections.singletonList(dto);
-        given(presentationService.getAllByConferenceId(anyLong())).willReturn(presentationDtos);
+        given(presentationService.getAllByConferenceId(1L)).willReturn(presentationDtos);
 
         // When Then
         mockMvc.perform(get("/presentations/1").contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
@@ -54,5 +59,18 @@ class PresentationControllerTest {
                 .andExpect(jsonPath("$[0].presentationName", is(dto.getPresentationName())))
                 .andExpect(jsonPath("$[0].userFirstName", is(dto.getUserFirstName())))
                 .andExpect(jsonPath("$[0].userLastName", is(dto.getUserLastName())));
+    }
+
+    @Test
+    void getPresentationPansByPresentationId() throws Exception {
+        //  Given
+        PresentationPlanDto dto = new PresentationPlanDto();
+        dto.setItem("item1");
+        given(presentationPlanService.getAllByPresentationId(anyLong())).willReturn(Collections.singletonList(dto));
+
+        // When Then
+        mockMvc.perform(get("/presentations/presentation/1"))
+        .andExpect(status().isOk())
+        .andExpect(jsonPath("$[0].item", is(dto.getItem())));
     }
 }

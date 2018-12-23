@@ -19,11 +19,10 @@ public class PresentationDto {
     }
 
     public static PresentationDto from(Presentation presentation) {
-        PresentationDto presentationDto = new PresentationDto(
+        return  new PresentationDto(
                 presentation.getName(),
                 presentation.getUser().getFirstName(),
                 presentation.getUser().getLastName());
-        return presentationDto;
     }
 
     public String getPresentationName() {
