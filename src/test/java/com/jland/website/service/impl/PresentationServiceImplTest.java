@@ -43,10 +43,10 @@ class PresentationServiceImplTest {
         presentation.setEvent(event);
         presentation.setName("PName");
         List<Presentation> presentations = Collections.singletonList(presentation);
-        given(presentationRepository.getPresentationsByConferenceId(anyLong())).willReturn(presentations);
+        given(presentationRepository.getAllByConferenceId(anyLong())).willReturn(presentations);
 
         // When
-        List<PresentationDto> resultList = service.getPresentationsByConferenceId(1L);
+        List<PresentationDto> resultList = service.getAllByConferenceId(1L);
         assertEquals(1, resultList.size());
         assertEquals("PName", resultList.get(0).getPresentationName());
         assertEquals("FName", resultList.get(0).getUserFirstName());

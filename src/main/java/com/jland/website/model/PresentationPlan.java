@@ -46,13 +46,13 @@ public class PresentationPlan {
         if (!(o instanceof PresentationPlan)) return false;
         PresentationPlan point = (PresentationPlan) o;
         return getOrder() == point.getOrder() &&
-                Objects.equals(getItem(), point.getItem());
+                Objects.equals(getId(), point.getId());
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(getItem(), getOrder());
+        return Objects.hash(getId());
     }
 
     @Override

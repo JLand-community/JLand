@@ -15,7 +15,7 @@ public class ConferenceServiceImpl implements ConferenceService {
     }
 
     @Override
-    public Conference getConferenceById(Long conferenceId) {
-        return conferenceRepository.getConferenceById(conferenceId);
+    public Conference getById(Long id) {
+        return conferenceRepository.getById(id);
     }
 }

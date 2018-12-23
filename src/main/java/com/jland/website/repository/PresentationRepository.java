@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface PresentationRepository {
 
-    List<Presentation> getPresentationsByConferenceId(Long conferenceId);
+    List<Presentation> getAllByConferenceId(Long conferenceId);
 }

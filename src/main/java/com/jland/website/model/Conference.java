@@ -51,15 +51,13 @@ public class Conference {
         if (this == o) return true;
         if (!(o instanceof Conference)) return false;
         Conference that = (Conference) o;
-        return Objects.equals(getDescription(), that.getDescription()) &&
-                Objects.equals(getDate(), that.getDate()) &&
-                Objects.equals(getAddress(), that.getAddress());
+        return Objects.equals(getId(), that.getId());
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(getDescription(), getDate(), getAddress());
+        return Objects.hash(getId());
     }
 
     @Override

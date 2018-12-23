@@ -60,15 +60,13 @@ public class User {
         if (this == o) return true;
         if (!(o instanceof User)) return false;
         User user = (User) o;
-        return Objects.equals(getFirstName(), user.getFirstName()) &&
-                Objects.equals(getLastName(), user.getLastName()) &&
-                Objects.equals(getPhoto(), user.getPhoto());
+        return Objects.equals(getId(), user.getId());
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(getFirstName(), getLastName(), getPhoto());
+        return Objects.hash(getId());
     }
 
     @Override

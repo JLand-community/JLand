@@ -45,7 +45,7 @@ class PresentationControllerTest {
         dto.setUserFirstName("Uname");
         dto.setUserLastName("ULname");
         List<PresentationDto> presentationDtos = Collections.singletonList(dto);
-        given(presentationService.getPresentationsByConferenceId(anyLong())).willReturn(presentationDtos);
+        given(presentationService.getAllByConferenceId(anyLong())).willReturn(presentationDtos);
 
         // When Then
         mockMvc.perform(get("/presentations/1").contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))

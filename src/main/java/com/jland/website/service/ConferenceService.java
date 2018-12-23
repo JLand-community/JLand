@@ -4,5 +4,5 @@ import com.jland.website.model.Conference;
 
 public interface ConferenceService {
 
-    Conference getConferenceById(Long conferenceId);
+    Conference getById(Long conferenceId);
 }

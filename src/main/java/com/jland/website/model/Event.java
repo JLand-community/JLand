@@ -75,17 +75,13 @@ public class Event {
         if (!(o instanceof Event)) return false;
         Event event = (Event) o;
         return getOrder() == event.getOrder() &&
-                Objects.equals(getConference(), event.getConference()) &&
-                Objects.equals(getName(), event.getName()) &&
-                Objects.equals(getType(), event.getType()) &&
-                Objects.equals(getStartTime(), event.getStartTime()) &&
-                Objects.equals(getEndTime(), event.getEndTime());
+                Objects.equals(getId(), event.getId());
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(getConference(), getName(), getType(), getStartTime(), getEndTime(), getOrder());
+        return Objects.hash(getId());
     }
 
     @Override

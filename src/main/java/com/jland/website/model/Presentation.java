@@ -56,16 +56,13 @@ public class Presentation {
         if (this == o) return true;
         if (!(o instanceof Presentation)) return false;
         Presentation that = (Presentation) o;
-        return Objects.equals(getEvent(), that.getEvent()) &&
-                Objects.equals(getName(), that.getName()) &&
-                Objects.equals(getItems(), that.getItems()) &&
-                Objects.equals(getUser(), that.getUser());
+        return Objects.equals(getId(), that.getId());
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(getEvent(), getName(), getItems(), getUser());
+        return Objects.hash(getId());
     }
 
     @Override

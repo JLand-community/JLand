@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface PresentationService {
 
-    List<PresentationDto> getPresentationsByConferenceId(Long conferenceId);
+    List<PresentationDto> getAllByConferenceId(Long conferenceId);
 }

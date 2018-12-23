@@ -19,8 +19,8 @@ public class PresentationServiceImpl implements PresentationService {
     }
 
     @Override
-    public List<PresentationDto> getPresentationsByConferenceId(Long conferenceId) {
-        List<Presentation> presentations = presentationRepository.getPresentationsByConferenceId(conferenceId);
+    public List<PresentationDto> getAllByConferenceId(Long conferenceId) {
+        List<Presentation> presentations = presentationRepository.getAllByConferenceId(conferenceId);
         return presentations.stream().map(PresentationDto::from).collect(Collectors.toList());
     }
 }

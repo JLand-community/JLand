@@ -50,9 +50,9 @@ class ConferenceControllerTest {
         conference.setDescription("New conference");
         conference.setAddress("Fabra");
 //        WHEN
-        when(conferenceService.getConferenceById(1L)).thenReturn(conference);
+        when(conferenceService.getById(1L)).thenReturn(conference);
         //THEN
-        mockMvc.perform(get("/conference/1").contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
+        mockMvc.perform(get("/conferences/1").contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("id", is(1)))
