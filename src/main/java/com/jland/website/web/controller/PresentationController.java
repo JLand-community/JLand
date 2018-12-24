@@ -26,7 +26,7 @@ public class PresentationController {
         this.presentationPlanService = presentationPlanService;
     }
 
-    @RequestMapping(value = "/{conferenceId}", method = RequestMethod.GET)
+    @RequestMapping(value = "/conferences/{conferenceId}", method = RequestMethod.GET)
     public ResponseEntity<List<PresentationDto>> getAllByConferenceId(@PathVariable("conferenceId") Long conferenceId) {
         LOGGER.info("Getting all presentations by conference Id = {}", conferenceId);
         return new ResponseEntity<>(presentationService.getAllByConferenceId(conferenceId), HttpStatus.OK);
