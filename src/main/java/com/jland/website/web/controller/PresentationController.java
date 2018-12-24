@@ -32,7 +32,7 @@ public class PresentationController {
         return new ResponseEntity<>(presentationService.getAllByConferenceId(conferenceId), HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/presentation/{presentationId}", method = RequestMethod.GET)
+    @RequestMapping(value = "/{presentationId}/plan", method = RequestMethod.GET)
     public ResponseEntity<List<PresentationPlanDto>> getPresentationPlans(@PathVariable("presentationId") Long presentationId) {
         LOGGER.info("Get list of presentation plans by presentationId = {}", presentationId);
         return new ResponseEntity<>(presentationPlanService.getAllByPresentationId(presentationId), HttpStatus.OK);
