@@ -8,7 +8,7 @@
         <context:exclude-filter type="regex" expression="com\.jland\.web\.controller\..*"/>
     </context:component-scan>
 
-    <context:property-placeholder location="classpath:property/db.properties"/>
+    <context:property-placeholder location="resources/property/db.properties"/>
     <bean name="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
         <property name="driverClassName" value="${postgres.db.driverclassname}" />
         <property name="url" value="${postgres.db.url}" />

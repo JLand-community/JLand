@@ -52,7 +52,7 @@ create table if not exists jland_site.presentation
 	user_id integer,
 	constraint presentation_user_id_fkey
 			references jland_site.user,
-	order integer
+	presentation_order integer
 )
 ;
 
@@ -65,7 +65,7 @@ create table if not exists jland_site.presentation_plan
 		constraint presentation_plan_presentation_id_fkey
 			references jland_site.presentation,
 	point varchar(255),
-	order integer
+	item_order integer
 )
 ;
 

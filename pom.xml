@@ -6,6 +6,7 @@
 
     <groupId>com.jland</groupId>
     <artifactId>jland</artifactId>
+    <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
     <build>
         <plugins>

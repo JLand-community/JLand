@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!--font-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Plaster" rel="stylesheet">
+    <!--font awesome icons-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+          integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+    <!--my custom styles:-->
+
+    <link rel="stylesheet" href="../assets/css/mainpage.css">
+    <link rel="stylesheet" href="../assets/css/login.css">
+    <title>Login Form</title>
+</head>
+<body class="login-grid">
+
+<header class="header">
+    <div class="logo">
+        <p class="logo__letter logo__letter--j logo__letter--plaster">j</p>
+        <p class="logo__letter logo__letter--l logo__letter--plaster">l</p>
+        <p class="logo__letter logo__letter--amp logo--decoration">&</p>
+    </div>
+</header>
+
+<section class="login">
+    <div class="login__title">
+        <h3 class="title">Login Form</h3>
+        <h3 class="sign-up">
+            <a href="#">Sing Up</a>
+        </h3>
+    </div>
+
+    <form action="#" method="post">
+
+        <div class="usernameBox inputBox">
+            <input type="text" id="username" name="username" required="" oninvalid="this.setCustomValidity('Please enter username')"
+                   oninput="setCustomValidity('')">
+            <label for="username">Username</label>
+        </div>
+
+        <div class="passwordBox inputBox">
+            <input type="text" id="password" name="password" required="" oninvalid="this.setCustomValidity('Please enter password')"
+                   oninput="setCustomValidity('')">
+            <label for="password">Password</label>
+        </div>
+
+
+        <div class="checkBoxInput">
+            <input type="checkbox" class="checkbox" id="remember">
+            <label for="remember">Remember Me</label>
+        </div>
+
+        <a href="#" class="forgot-password-link">Forgot password?</a>
+
+        <button type="submit" class="login__button">Login</button>
+    </form>
+</section>
+</body>
+</html>
