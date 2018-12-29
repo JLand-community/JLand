@@ -4,6 +4,10 @@
 <head>
     <spring:url value="/resources/assets/css/mainpage.css" var="mainpage"/>
     <spring:url value="/resources/assets/js/app.js" var="app"/>
+    <spring:url value="/resources/assets/img/users/siamang.jpg" var="siamang"/>
+    <spring:url value="/resources/assets/img/coffee.png" var="coffee"/>
+    <spring:url value="/resources/assets/img/whiteboard.png" var="whiteboard"/>
+    <spring:url value="/resources/assets/img/whiteboard2fhd.png" var="whiteboard2fhd"/>
 
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -59,7 +63,7 @@
     </div>
 
     <div class="date-place__board">
-        <img src="../../../frontend/img/whiteboard2fhd.png" alt="" class="date-place__board--size">
+        <img src="${whiteboard2fhd}" alt="" class="date-place__board--size">
     </div>
 
     <div class="date-place__item ">
@@ -113,7 +117,7 @@
         <li class="agenda__item welcome-info--decoration">
             <p class="agenda__item-time" contenteditable="true">11:30 - 12:00</p>
 
-                <img src="../../../frontend/img/coffee.png" class="agenda__item--img-coffee">
+                <img src="${coffee}" class="agenda__item--img-coffee">
 
             <div class="agenda__item-title ">
                 <div class="agenda__item-title--coffe">Welcome Coffee</div>
