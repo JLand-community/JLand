@@ -3,6 +3,7 @@ package com.jland.website.repository.mapper;
 import com.jland.website.model.Event;
 import com.jland.website.model.Presentation;
 import com.jland.website.model.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;
@@ -11,6 +12,13 @@ import java.time.LocalTime;
 
 public class PresentationMapper implements RowMapper<Presentation> {
 
+    private UserMapper userMapper;
+
+    @Autowired
+    public PresentationMapper(UserMapper userMapper) {
+        this.userMapper = userMapper;
+    }
+
     @Override
     public Presentation mapRow(ResultSet resultSet, int i) throws SQLException {
         Presentation presentation = new Presentation();
@@ -18,7 +26,7 @@ public class PresentationMapper implements RowMapper<Presentation> {
         presentation.setName(resultSet.getString("presentation_name"));
         Event event = getEvent(resultSet);
         presentation.setEvent(event);
-        User user = getUser(resultSet);
+        User user = userMapper.mapRow(resultSet, i);
         presentation.setUser(user);
         return presentation;
     }
@@ -34,12 +42,4 @@ public class PresentationMapper implements RowMapper<Presentation> {
         event.setEndTime(endTime);
         return event;
     }
-
-    private User getUser(ResultSet resultSet) throws SQLException {
-        User user = new User();
-        user.setFirstName(resultSet.getString("first_name"));
-        user.setLastName(resultSet.getString("last_name"));
-        return user;
-    }
-
 }

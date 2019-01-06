@@ -14,6 +14,16 @@ public class Conference {
     private LocalDate date;
     private String address;
 
+    public Conference() {
+    }
+
+    public Conference(Long id, String description, LocalDate date, String address) {
+        this.id = id;
+        this.description = description;
+        this.date = date;
+        this.address = address;
+    }
+
     public long getId() {
         return id;
     }

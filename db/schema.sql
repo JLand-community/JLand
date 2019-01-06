@@ -108,7 +108,6 @@ create table participant
 	conference_id integer               not null
 		constraint participant_conference_id_fkey
 		references conference,
-	speaker       boolean default false not null,
-	listener      boolean default false not null
+	event_role       varchar(255)
 );
 

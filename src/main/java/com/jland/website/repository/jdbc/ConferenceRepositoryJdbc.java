@@ -12,7 +12,7 @@ import java.util.Optional;
 @Repository
 public class ConferenceRepositoryJdbc implements ConferenceRepository {
 
-    private static final ConferenceMapper conferenceMapper = new ConferenceMapper();
+    private static final ConferenceMapper CONFERENCE_MAPPER = new ConferenceMapper();
     private static final String GET_CONFERENCE_SQL = "select id, description, date, address from jland_site.conference where id = :id;";
 
     private final NamedParameterJdbcTemplate namedParameterJdbcTemplate;
@@ -25,6 +25,6 @@ public class ConferenceRepositoryJdbc implements ConferenceRepository {
     public Optional<Conference> getById(Long id) {
         MapSqlParameterSource mapSqlParameter =new MapSqlParameterSource();
         mapSqlParameter.addValue("id", id);
-        return namedParameterJdbcTemplate.query(GET_CONFERENCE_SQL, mapSqlParameter, conferenceMapper).stream().findFirst();
+        return namedParameterJdbcTemplate.query(GET_CONFERENCE_SQL, mapSqlParameter, CONFERENCE_MAPPER).stream().findFirst();
     }
 }

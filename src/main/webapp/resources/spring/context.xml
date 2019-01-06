@@ -25,4 +25,12 @@
         <constructor-arg ref="dataSource"/>
     </bean>
 
+    <bean name="userMapper" class="com.jland.website.repository.mapper.UserMapper"/>
+    <bean name="presentationMapper" class="com.jland.website.repository.mapper.PresentationMapper">
+        <constructor-arg ref="userMapper"/>
+    </bean>
+    <bean name="participationMapper" class="com.jland.website.repository.mapper.ParticipationMapper">
+        <constructor-arg ref="userMapper"/>
+    </bean>
+
 </beans>
