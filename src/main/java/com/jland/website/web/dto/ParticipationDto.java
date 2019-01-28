@@ -1,6 +1,6 @@
 package com.jland.website.web.dto;
 
-import com.jland.website.model.Participation;
+import com.jland.website.model.Participant;
 
 public class ParticipationDto {
 
@@ -17,11 +17,11 @@ public class ParticipationDto {
         this.eventRole = eventRole;
     }
 
-    public static ParticipationDto from(Participation participation) {
+    public static ParticipationDto from(Participant participant) {
         return  new ParticipationDto(
-                participation.getUser().getFirstName(),
-                participation.getUser().getLastName(),
-                participation.getEventRole().getValue());
+                participant.getUser().getFirstName(),
+                participant.getUser().getLastName(),
+                participant.getEventRole().getValue());
     }
 
     public String getFirstName() {

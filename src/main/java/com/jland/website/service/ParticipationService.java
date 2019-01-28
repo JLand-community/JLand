@@ -7,4 +7,6 @@ import java.util.List;
 public interface ParticipationService {
 
     List<ParticipationDto> getAllByConferenceId(Long conferenceId);
+
+    void add(ParticipationDto participant);
 }

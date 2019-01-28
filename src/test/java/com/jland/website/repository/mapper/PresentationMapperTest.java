@@ -17,7 +17,6 @@ import java.sql.Time;
 import java.time.LocalTime;
 
 import static org.mockito.Mockito.when;
-import static org.mockito.MockitoAnnotations.initMocks;
 
 @ExtendWith(MockitoExtension.class)
 @MockitoSettings(strictness = Strictness.LENIENT)
@@ -27,11 +26,6 @@ class PresentationMapperTest {
     private ResultSet resultSet;
     @Mock
     private UserMapper userMapper;
-
-    @BeforeEach
-    public void setUp() {
-        initMocks(this);
-    }
 
     @Test
     void mapRow() throws SQLException {

@@ -2,10 +2,9 @@ package com.jland.website.repository.mapper;
 
 import com.jland.website.model.Conference;
 import com.jland.website.model.EventRole;
-import com.jland.website.model.Participation;
+import com.jland.website.model.Participant;
 import com.jland.website.model.User;
 import org.assertj.core.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
@@ -19,7 +18,6 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 
 import static org.mockito.Mockito.when;
-import static org.mockito.MockitoAnnotations.initMocks;
 
 @ExtendWith(MockitoExtension.class)
 @MockitoSettings(strictness = Strictness.LENIENT)
@@ -30,15 +28,10 @@ class ParticipationMapperTest {
     @Mock
     private UserMapper userMapper;
 
-    @BeforeEach
-    public void setUp() {
-        initMocks(this);
-    }
-
     @Test
     void mapRow() throws SQLException {
         //GIVEN
-        Participation expectedParticipation = new Participation();
+        Participant expectedParticipation = new Participant();
         expectedParticipation.setId(1L);
         expectedParticipation.setEventRole(EventRole.LISTENER);
         expectedParticipation.setUser(new User("first", "last"));
@@ -54,7 +47,7 @@ class ParticipationMapperTest {
 
         ParticipationMapper mapper = new ParticipationMapper(userMapper);
         //WHEN
-        Participation participation = mapper.mapRow(resultSet, 0);
+        Participant participation = mapper.mapRow(resultSet, 0);
         //THEN
         Assertions.assertThat(participation).isEqualToComparingOnlyGivenFields(expectedParticipation);
     }

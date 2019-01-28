@@ -8,7 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 
-public class ParticipationMapper implements RowMapper<Participation> {
+public class ParticipationMapper implements RowMapper<Participant> {
 
 
     private UserMapper userMapper;
@@ -19,15 +19,15 @@ public class ParticipationMapper implements RowMapper<Participation> {
     }
 
     @Override
-    public Participation mapRow(ResultSet resultSet, int i) throws SQLException {
-        Participation participation = new Participation();
-        participation.setId(resultSet.getLong("id"));
+    public Participant mapRow(ResultSet resultSet, int i) throws SQLException {
+        Participant participant = new Participant();
+        participant.setId(resultSet.getLong("id"));
         User user = userMapper.mapRow(resultSet, i);
-        participation.setUser(user);
+        participant.setUser(user);
         Conference conference = getConference(resultSet);
-        participation.setConference(conference);
-        participation.setEventRole(EventRole.getEventRole(resultSet.getString("event_role")));
-        return participation;
+        participant.setConference(conference);
+        participant.setEventRole(EventRole.getEventRole(resultSet.getString("event_role")));
+        return participant;
     }
 
     private Conference getConference(ResultSet resultSet) throws SQLException {

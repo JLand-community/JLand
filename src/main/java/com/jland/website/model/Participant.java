@@ -2,7 +2,7 @@ package com.jland.website.model;
 
 import java.util.Objects;
 
-public class Participation {
+public class Participant {
 
     private long id;
     private User user;
@@ -44,8 +44,8 @@ public class Participation {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Participation)) return false;
-        Participation that = (Participation) o;
+        if (!(o instanceof Participant)) return false;
+        Participant that = (Participant) o;
         return getId() == that.getId();
     }
 

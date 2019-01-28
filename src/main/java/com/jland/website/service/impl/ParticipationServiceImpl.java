@@ -1,6 +1,6 @@
 package com.jland.website.service.impl;
 
-import com.jland.website.model.Participation;
+import com.jland.website.model.Participant;
 import com.jland.website.repository.ParticipationRepository;
 import com.jland.website.service.ParticipationService;
 import com.jland.website.web.dto.ParticipationDto;
@@ -19,7 +19,12 @@ public class ParticipationServiceImpl implements ParticipationService {
 
     @Override
     public List<ParticipationDto> getAllByConferenceId(Long conferenceId) {
-         List<Participation> participants = participationRepository.getAllByConferenceId(conferenceId);
+         List<Participant> participants = participationRepository.getAllByConferenceId(conferenceId);
         return participants.stream().map(ParticipationDto::from).collect(Collectors.toList());
+    }
+
+    @Override
+    public void add(ParticipationDto participant) {
+
     }
 }
