@@ -13,7 +13,7 @@ import java.util.List;
 public class PresentationPlanRepositoryJdbc implements PresentationPlanRepository {
 
     private static final PresentationPlanMapper presentationPlanMapper = new PresentationPlanMapper();
-    private static final String GET_PRESENTATION_PLAN_SQL = "select point from jland_site.presentation_plan plan where presentation_id = :presentation_id order by item_order asc;";
+    private static final String GET_PRESENTATION_PLAN_SQL = "select id, point from jland_site.presentation_plan plan where presentation_id = :presentation_id order by item_order asc;";
 
     private final NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 

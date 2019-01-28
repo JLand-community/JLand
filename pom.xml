@@ -35,6 +35,14 @@
                     </dependency>
                 </dependencies>
             </plugin>
+            <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <version>2.2</version>
+                <configuration>
+                    <path>/</path>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
@@ -53,6 +61,8 @@
         <mockito.version>2.23.4</mockito.version>
         <hamcrest.version>2.0.0.0</hamcrest.version>
         <assertj.version>3.11.1</assertj.version>
+        <!--Web-->
+        <thymeleaf.version>3.0.9.RELEASE</thymeleaf.version>
     </properties>
 
     <dependencies>
@@ -150,6 +160,17 @@
             <scope>test</scope>
         </dependency>
 
+        <!--Web-->
+        <dependency>
+            <groupId>org.thymeleaf</groupId>
+            <artifactId>thymeleaf-spring5</artifactId>
+            <version>${thymeleaf.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.thymeleaf.extras</groupId>
+            <artifactId>thymeleaf-extras-java8time</artifactId>
+            <version>3.0.1.RELEASE</version>
+        </dependency>
 
     </dependencies>
 

@@ -473,6 +473,7 @@ h1 {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr auto 100px;
 
+
     border-radius: 25px 25px 25px 25px;
     border: none;
 }
@@ -492,11 +493,7 @@ h1 {
 
 .user__name {
     grid-row: 2;
-
-    display: flex;
-    justify-content: center;
-    /*border-top: solid rgba(255, 255, 255, 0.5);
-    border-bottom: solid rgba(255, 255, 255, 0.5);*/
+    text-align: center;
 }
 
 .register {

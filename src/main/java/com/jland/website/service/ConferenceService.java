@@ -5,4 +5,7 @@ import com.jland.website.model.Conference;
 public interface ConferenceService {
 
     Conference getById(Long conferenceId);
+
+    Conference getNearestConference();
+
 }

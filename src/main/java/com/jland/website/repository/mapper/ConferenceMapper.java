@@ -9,6 +9,8 @@ import java.time.LocalDate;
 
 public class ConferenceMapper implements RowMapper<Conference> {
 
+
+
     @Override
     public Conference mapRow(ResultSet resultSet, int i) throws SQLException {
         Conference conference = new Conference();

@@ -19,4 +19,12 @@ public class ConferenceServiceImpl implements ConferenceService {
 
         return conferenceRepository.getById(id).orElse(null);
     }
+
+    @Override
+    public Conference getNearestConference() {
+        return conferenceRepository.getNearestConference().orElse(null);
+    }
+
+
+
 }

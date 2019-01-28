@@ -14,12 +14,32 @@
     <context:component-scan base-package="com.jland.website.web.controller"/>
 
     <mvc:annotation-driven/>
-    <bean id = "viewResolver"
+    <!--bean id = "viewResolver"
           class = "org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name = "prefix" value = "/WEB-INF/pages/" />
         <property name = "suffix" value = ".jsp" />
-    </bean>
+    </bean-->
 
     <mvc:resources mapping="/resources/**" location="/resources/"/>
+
+    <!--  THYMELEAF-SPECIFIC ARTIFACTS                                    -->
+    <!--  TemplateResolver <- TemplateEngine <- ViewResolver              -->
+    <bean id="templateResolver"
+          class="org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver">
+        <property name="prefix" value="/resources/templates/" />
+        <property name="suffix" value=".html" />
+    </bean>
+
+    <bean id="java8TimeDialect" class="org.thymeleaf.extras.java8time.dialect.Java8TimeDialect"/>
+
+    <bean id="templateEngine"
+          class="org.thymeleaf.spring5.SpringTemplateEngine">
+        <property name="templateResolver" ref="templateResolver" />
+        <property name="additionalDialects" ref="java8TimeDialect"/>
+    </bean>
+
+    <bean class="org.thymeleaf.spring5.view.ThymeleafViewResolver">
+        <property name="templateEngine" ref="templateEngine" />
+    </bean>
 
 </beans>

@@ -7,4 +7,8 @@ import java.util.Optional;
 public interface ConferenceRepository {
 
     Optional<Conference> getById(Long conferenceId);
+
+    Optional<Conference> getNearestConference();
+
+
 }
