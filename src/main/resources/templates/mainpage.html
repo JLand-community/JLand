@@ -10,7 +10,7 @@
     <!--favicon.ico-->
     <link rel="icon"
           type="image/png"
-          href="../../resources/assets/img/favicon.ico">
+          href="/assets/img/favicon.ico">
 
 
     <!--font-->
@@ -22,7 +22,7 @@
           integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
     <!--custom styles:-->
-    <link rel="stylesheet" href="../../resources/assets/css/mainpage.css">
+    <link rel="stylesheet" href="../assets/css/mainpage.css">
 
     <title>JLand Home Page</title>
 </head>
@@ -61,7 +61,7 @@
     </div>
 
     <div class="date-place__board">
-        <img src="../../resources/assets/img/whiteboard2fhd.png" alt="" class="date-place__board--size">
+        <img src="/assets/img/whiteboard2fhd.png" alt="" class="date-place__board--size">
     </div>
 
     <div class="date-place__item ">
@@ -123,7 +123,7 @@
             <p class="agenda__item-time" contenteditable="true"
                th:text="${{event.startTime}} + ' - ' + ${{event.endTime}}">Event time interval</p>
 
-            <img src="../../resources/assets/img/coffee.png" class="agenda__item--img-coffee"
+            <img src="/assets/img/coffee.png" class="agenda__item--img-coffee"
                  th:if="${event.type}=='Coffee'">
 
             <div class="agenda__item-title" th:if="${event.type}=='Presentation'">
@@ -165,6 +165,6 @@
 
 
 <!--scripts-->
-<script src="../../resources/assets/js/application.js"></script>
+<script src="/assets/js/application.js"></script>
 </body>
 </html>

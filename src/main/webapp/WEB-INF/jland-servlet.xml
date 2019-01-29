@@ -14,19 +14,14 @@
     <context:component-scan base-package="com.jland.website.web.controller"/>
 
     <mvc:annotation-driven/>
-    <!--bean id = "viewResolver"
-          class = "org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name = "prefix" value = "/WEB-INF/pages/" />
-        <property name = "suffix" value = ".jsp" />
-    </bean-->
 
-    <mvc:resources mapping="/resources/**" location="/resources/"/>
+    <mvc:resources mapping="/assets/**" location="classpath:/assets/"/>
 
     <!--  THYMELEAF-SPECIFIC ARTIFACTS                                    -->
     <!--  TemplateResolver <- TemplateEngine <- ViewResolver              -->
     <bean id="templateResolver"
           class="org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver">
-        <property name="prefix" value="/resources/templates/" />
+        <property name="prefix" value="classpath:/templates/" />
         <property name="suffix" value=".html" />
     </bean>
 
