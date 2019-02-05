@@ -1,6 +1,6 @@
 package com.jland.website.service.impl;
 
-import com.jland.website.model.PresentationPlan;
+import com.jland.website.model.PresentationPlanItem;
 import com.jland.website.repository.PresentationPlanRepository;
 import com.jland.website.web.dto.PresentationPlanDto;
 import org.junit.jupiter.api.Test;
@@ -16,7 +16,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.BDDMockito.given;
 
 @ExtendWith(MockitoExtension.class)
-class PresentationPlanServiceImplTest {
+class PresentationPlanItemServiceImplTest {
     @Mock
     PresentationPlanRepository repository;
     @InjectMocks
@@ -25,11 +25,11 @@ class PresentationPlanServiceImplTest {
     @Test
     public void getAllByPresentationId() {
         // Given
-        PresentationPlan plan = new PresentationPlan();
+        PresentationPlanItem plan = new PresentationPlanItem();
         plan.setId(1L);
         plan.setItem("item");
         plan.setOrder(12);
-        List<PresentationPlan> plans = Collections.singletonList(plan);
+        List<PresentationPlanItem> plans = Collections.singletonList(plan);
         given(repository.getAllByPresentationId(1L)).willReturn(plans);
 
         // When

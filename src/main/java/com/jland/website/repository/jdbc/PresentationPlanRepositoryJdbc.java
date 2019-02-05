@@ -1,6 +1,6 @@
 package com.jland.website.repository.jdbc;
 
-import com.jland.website.model.PresentationPlan;
+import com.jland.website.model.PresentationPlanItem;
 import com.jland.website.repository.PresentationPlanRepository;
 import com.jland.website.repository.mapper.PresentationPlanMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
@@ -22,7 +22,7 @@ public class PresentationPlanRepositoryJdbc implements PresentationPlanRepositor
     }
 
     @Override
-    public List<PresentationPlan> getAllByPresentationId(Long presentationId) {
+    public List<PresentationPlanItem> getAllByPresentationId(Long presentationId) {
         MapSqlParameterSource mapSqlParameter = new MapSqlParameterSource();
         mapSqlParameter.addValue("presentation_id", presentationId);
         return namedParameterJdbcTemplate.query(GET_PRESENTATION_PLAN_SQL, mapSqlParameter, presentationPlanMapper);

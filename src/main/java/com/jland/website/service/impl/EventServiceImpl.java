@@ -2,7 +2,7 @@ package com.jland.website.service.impl;
 
 import com.jland.website.model.Event;
 import com.jland.website.model.Presentation;
-import com.jland.website.model.PresentationPlan;
+import com.jland.website.model.PresentationPlanItem;
 import com.jland.website.repository.EventRepository;
 import com.jland.website.repository.PresentationPlanRepository;
 import com.jland.website.service.EventService;
@@ -28,8 +28,8 @@ public class EventServiceImpl implements EventService {
             if("Presentation".equals(event.getType())){
                 Presentation presentation = event.getPresentation();
                 long id = presentation.getId();
-                List<PresentationPlan> planItems = presentationPlanRepository.getAllByPresentationId(id);
-                presentation.setItems(planItems);
+                List<PresentationPlanItem> planItems = presentationPlanRepository.getAllByPresentationId(id);
+                presentation.setPresentationPlan(planItems);
             }
         }
         return events;

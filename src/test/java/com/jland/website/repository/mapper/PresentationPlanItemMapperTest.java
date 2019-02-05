@@ -1,6 +1,6 @@
 package com.jland.website.repository.mapper;
 
-import com.jland.website.model.PresentationPlan;
+import com.jland.website.model.PresentationPlanItem;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
@@ -13,7 +13,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.BDDMockito.given;
 
 @ExtendWith(MockitoExtension.class)
-class PresentationPlanMapperTest {
+class PresentationPlanItemMapperTest {
 
     @Mock
     private ResultSet resultSet;
@@ -21,16 +21,16 @@ class PresentationPlanMapperTest {
     @Test
     public void mapRow() throws SQLException {
         // Given
-        PresentationPlan presentationPlan = new PresentationPlan();
-        presentationPlan.setId(1L);
-        presentationPlan.setItem("point");
-        given(resultSet.getLong("id")).willReturn(presentationPlan.getId());
-        given((resultSet.getString("point"))).willReturn(presentationPlan.getItem());
+        PresentationPlanItem presentationPlanItem = new PresentationPlanItem();
+        presentationPlanItem.setId(1L);
+        presentationPlanItem.setItem("point");
+        given(resultSet.getLong("id")).willReturn(presentationPlanItem.getId());
+        given((resultSet.getString("point"))).willReturn(presentationPlanItem.getItem());
         PresentationPlanMapper mapper = new PresentationPlanMapper();
 
         // When
-        PresentationPlan result = mapper.mapRow(resultSet, 0);
-        assertThat(result).isEqualTo(presentationPlan);
+        PresentationPlanItem result = mapper.mapRow(resultSet, 0);
+        assertThat(result).isEqualTo(presentationPlanItem);
 
 
     }

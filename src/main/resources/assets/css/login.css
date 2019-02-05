@@ -22,7 +22,7 @@ body {
 
 .login-grid {
     display: grid;
-    grid-template-rows: 75px 150px 1fr;
+    grid-template-rows: 75px 75px 1fr;
 
 }
 

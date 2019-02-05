@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public class ConferenceRepositoryJdbc implements ConferenceRepository {
+public class JdbcConferenceRepository implements ConferenceRepository {
 
     private static final ConferenceMapper conferenceMapper = new ConferenceMapper();
     private static final String GET_CONFERENCE_SQL = "select id, description, date, address from jland_site.conference where id = :id;";
@@ -19,7 +19,7 @@ public class ConferenceRepositoryJdbc implements ConferenceRepository {
 
     private final NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
-    public ConferenceRepositoryJdbc(NamedParameterJdbcTemplate namedParameterJdbcTemplate) {
+    public JdbcConferenceRepository(NamedParameterJdbcTemplate namedParameterJdbcTemplate) {
         this.namedParameterJdbcTemplate = namedParameterJdbcTemplate;
     }
 

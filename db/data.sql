@@ -53,3 +53,14 @@ VALUES (2, 'Popular images.', 5);
 INSERT INTO presentation_plan(presentation_id, point, item_order)
 VALUES (2, 'tbc', 6);
 
+/*participants*/
+INSERT INTO jland_site.participant (user_id, conference_id) VALUES (1, 1);
+INSERT INTO jland_site.participant (user_id, conference_id) VALUES (2, 1);
+
+
+/**/
+UPDATE jland_site.user
+SET username = 'user'
+AND password = '$2a$10$QyLX53D3T/2gpICovAYn8e0Y2aAPaOFXvuZP52hIB3wL/eYDcHzfa'
+AND user_role = 'USER'
+WHERE id = 1;

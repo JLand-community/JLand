@@ -112,3 +112,7 @@ create table participant
 	listener      boolean default false not null
 );
 
+ALTER TABLE jland_site.user
+ADD COLUMN username VARCHAR,
+ADD COLUMN password VARCHAR,
+ADD COLUMN user_role VARCHAR;

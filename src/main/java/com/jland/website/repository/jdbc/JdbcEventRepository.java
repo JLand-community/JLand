@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public class EventRepositoryJDBC implements EventRepository {
+public class JdbcEventRepository implements EventRepository {
 
     private static final EventMapper eventMapper = new EventMapper();
     private static final String GET_CONFERENCE_EVENTS_SQL =
@@ -24,7 +24,7 @@ public class EventRepositoryJDBC implements EventRepository {
 
     private final NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
-    public EventRepositoryJDBC(NamedParameterJdbcTemplate namedParameterJdbcTemplate) {
+    public JdbcEventRepository(NamedParameterJdbcTemplate namedParameterJdbcTemplate) {
         this.namedParameterJdbcTemplate = namedParameterJdbcTemplate;
     }
     public List<Event> getAllByConferenceId(Long conferenceId) {
