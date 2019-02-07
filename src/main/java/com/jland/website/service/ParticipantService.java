@@ -8,9 +8,9 @@ public interface ParticipantService {
 
     boolean isParticipant(long userId, long conferenceId);
 
-    void register(long userId, long conferenceId);
+    void participate(long userId, long conferenceId);
 
-    void unregister(long userId, long conferenceId);
+    void notParticipate(long userId, long conferenceId);
 
     List<Participant> getAll(long conferenceId);
 

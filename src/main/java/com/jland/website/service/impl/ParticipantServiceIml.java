@@ -1,7 +1,6 @@
 package com.jland.website.service.impl;
 
 import com.jland.website.model.Participant;
-import com.jland.website.model.User;
 import com.jland.website.repository.ParticipantRepository;
 import com.jland.website.service.ParticipantService;
 
@@ -24,17 +23,18 @@ public class ParticipantServiceIml implements ParticipantService {
     }
 
     @Override
-    public void register(long userId, long conferenceId) {
-        participantRepository.registerParticipant(userId, conferenceId);
+    public void participate(long userId, long conferenceId) {
+        participantRepository.participate(userId, conferenceId);
     }
 
     @Override
-    public void unregister(long userId, long conferenceId) {
-        participantRepository.unregisterParticipant(userId, conferenceId);
+    public void notParticipate(long userId, long conferenceId) {
+        participantRepository.notParticipate(userId, conferenceId);
     }
 
     @Override
     public List<Participant> getAll(long conferenceId) {
        return participantRepository.getAllByConferenceId(conferenceId);
     }
+
 }

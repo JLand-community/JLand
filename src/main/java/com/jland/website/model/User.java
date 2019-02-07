@@ -74,6 +74,15 @@ public class User  {
         return username;
     }
 
+
+    public String getPhoto() {
+        return ("default".equals(photo)? photo : username) + ".png";
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

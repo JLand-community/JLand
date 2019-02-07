@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class JdbcUserRepository implements UserRepository {
     private final UserMapper userMapper = new UserMapper();
-    private static final String FIND_USER_SQL = "SELECT jland_site.user.id user_id, first_name, last_name, username, password, user_role\n" +
+    private static final String FIND_USER_SQL = "SELECT jland_site.user.id user_id, first_name, last_name, photo, username, password, user_role\n" +
             "FROM jland_site.user\n" +
             "WHERE username = :username;";
     private final NamedParameterJdbcTemplate namedParameterJdbcTemplate;

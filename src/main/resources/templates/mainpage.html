@@ -34,8 +34,10 @@
         <ul class="menu">
             <li class="menu__item"><a href="/home" class="menu__link menu__link--active ">Home</a></li>
             <li class="menu__item"><a href="#" class="menu__link">Apply for presentation</a></li>
-            <li class="menu__item"><a href="#" class="menu__link">Participants</a></li>
-            <li class="menu__item"><a href="#" class="menu__link">All Requests</a></li>
+            <li class="menu__item"><a th:with="baseUrl='/conference/'+${conference.id}+'/participants'"
+                                      th:href="@{${user.role}=='ADMIN' ? ${baseUrl} : '#'}"
+                                      class="menu__link">Participants</a></li>
+            <li class="menu__item" th:if="${user.role}=='ADMIN'"><a href="#" class="menu__link">All Requests</a></li>
         </ul>
         <form th:action="@{/logout}" method="post" class="logout">
             <button type="submit" class="logout__button" title="Logout">
@@ -83,12 +85,12 @@
     </div>
     <div class="user ">
         <div class="user__grid user--decoration">
-            <img src="https://bit.ly/2KRYNb8" alt="User avatar" class="user__avatar user__avatar--resize">
+            <img th:src="@{/assets/img/users/{userPhoto}(userPhoto=${user.photo})}" alt="User avatar" class="user__avatar user__avatar--resize">
             <div class="user__name" th:text="${user.firstName} + ' '  + ${user.lastName}">UserName UserLastName
             </div>
 
 
-            <form th:with="registerType = ${isParticipant}? 'unregister' : 'register'"
+            <form th:with="registerType = ${isParticipant}? 'notParticipate' : 'participate'"
                   th:action="@{/conference/{conferenceId}/user/{userId}/{registerType}(conferenceId=${conference.id},userId=${user.id},registerType=${registerType})}"
                   method="post" class="register">
                 <button type="submit" class="register__button register__button--active" th:if="${isParticipant}">

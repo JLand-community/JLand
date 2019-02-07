@@ -48,8 +48,7 @@ button:focus {
     /*agenda*/
     --agenda-background: rgba(0, 0, 0, .15);
     /*footer*/
-    --background-footer: black; /*rgba(53, 58, 64, 0.96);*/
-
+    --background-footer: black;
     /*button-icon*/
     --button-color: rgba(0, 104, 255, 0.08);
 
@@ -57,8 +56,7 @@ button:focus {
     --link-color: #bfbfbf;
 
     --background-toggle: rgba(69, 164, 227, 0.26);
-    --header-background: black; /*rgba(52, 52, 52, 0.71);*/
-
+    --header-background: black;
     --color-font-dark: rgba(0, 18, 41, 1);
 
     --header-footer-logo-color: #bfbfbf;
@@ -66,24 +64,14 @@ button:focus {
 }
 
 /*layout of main page blocks*/
-/*.main-grid {
-    display: grid;
-    grid-template-areas: ". . ." ". d ." ". a ." "f f f";
-    grid-template-columns: 100px 1fr 100px;
-    grid-template-rows: 75px 500px minmax(150px, 1fr);
-    grid-gap: 30px;
-}*/
-
 .main-grid {
     display: grid;
-    /*grid-template-areas: ". . ." ". d ." ". a ." "f f f";*/
     grid-template-columns: 1fr minmax(50%, 1500px) 1fr;
     grid-template-rows: 75px auto;
     grid-gap: 30px;
 }
 
 .footer {
-    /*grid-area: f;*/
     grid-column: 1/-1;
     grid-row: 4;
     background: var(--background-footer);
@@ -108,7 +96,7 @@ button:focus {
     margin-right: 5px;
 }
 
-/*header for mob. device screen*/
+/*header */
 .header {
     background: var(--header-background);
     position: fixed;
@@ -127,7 +115,7 @@ button:focus {
     display: grid;
 
     justify-items: end;
-    padding: 0px  25px 0 0;
+    padding: 0px 25px 0 0;
 
 }
 
@@ -171,7 +159,6 @@ button:focus {
     grid-row: 1;
     padding-left: 45px;
     font-size: 60px;
-    /*color: rgba(0, 0, 0, .9);*/
 }
 
 .logo__letter--amp {
@@ -179,7 +166,6 @@ button:focus {
     grid-row: 1;
     padding-left: 75px;
     font-size: 40px;
-    /* color:  rgba(0, 0, 0, .9);*/
 }
 
 .header .nav-toggle__label {
@@ -259,22 +245,16 @@ button:focus {
     opacity: 0.5;
 }
 
-
-
-
 /*date and place block*/
 
 .date-place {
-   /* grid-area: d;*/
     grid-column: 2;
     grid-row: 2;
     display: grid;
-    grid-template-columns: 1fr minmax(50%, 800px) 1fr 1fr;
+    grid-template-columns: minmax(200px, 1fr) minmax(650px, 800px) minmax(200px, 1fr);
     grid-template-rows: minmax(75px, 1fr);
     grid-gap: 40px;
 }
-
-
 
 .date-place > div {
     display: flex;
@@ -285,25 +265,16 @@ button:focus {
 
 }
 
-/*.date-place > div:not(.welcome-info, .user){
-    background: var(--date-place-background);
-
-}*/
-
 .welcome-info {
     grid-row: 1;
     grid-column: 1 / -1;
     text-decoration: none;
     text-align: center;
-
 }
 
 h1 {
     margin: 40px;
-
 }
-
-
 
 .welcome-info--decoration {
     position: relative;
@@ -324,7 +295,7 @@ h1 {
 }
 
 .welcome-info--decoration::before {
-    /*z-main: 1;*/
+
     border-top: 1px solid rgba(0, 0, 0, 1);
     border-left: 1px solid rgba(0, 0, 0, 1);
     border-radius: 0 75px 75px 75px;
@@ -335,7 +306,6 @@ h1 {
 .welcome-info--decoration::after {
     left: 0;
     top: 0;
-    /*z-main: 2;*/
     border-right: 1px solid rgba(255, 110, 0, 1);
     border-bottom: 1px solid rgba(255, 110, 0, 1);
     border-radius: 0 75px 75px 75px;
@@ -356,6 +326,7 @@ h1 {
 .date-place__board {
     position: relative;
 }
+
 .date-place__board::before {
     position: absolute;
     content: '';
@@ -367,8 +338,6 @@ h1 {
     z-index: -20;
     filter: blur(15px);
 }
-
-
 
 .date-place__item {
     grid-row: 2;
@@ -390,17 +359,16 @@ h1 {
 .user {
     grid-row: 2;
     grid-column: 3;
-
+    justify-self: start;
 }
 
-@media screen and (max-width: 1140px) {
-
+@media screen and (max-width: 1200px) {
     .main-grid {
         grid-template-columns: 1fr 95% 1fr;
     }
 
     .date-place {
-        grid-template-columns: 1fr 65% 1fr 1fr;
+        grid-template-columns: 1fr 65% 1fr;
         grid-template-rows: minmax(75px, 1fr);
         grid-gap: 30px;
     }
@@ -420,23 +388,16 @@ h1 {
     }
 
     .user {
-        grid-row: 2;
-        grid-column: 3;
+        grid-row: 3;
+        grid-column: 2;
+        justify-self: center;
     }
-
 }
-
-
 
 .user--decoration {
     position: relative;
     display: inline-block;
     border-radius: 25px 25px 25px 25px;
-
-
-    /* rgba(0, 0, 0, 0.03);*/
-    /*box-shadow: 10px -5px 0px -5px rgba(255, 110, 0, 1),
-    -10px 5px 0px -5px rgba(0, 0, 0, 1);*/
 }
 
 .user--decoration::before, .user--decoration::after {
@@ -446,14 +407,12 @@ h1 {
     height: 110%;
     width: 110%;
     border-radius: 25px 25px 25px 25px;
-
 }
 
 .user--decoration::before {
     z-index: 1;
     border-top: 1px solid rgba(255, 110, 0, 1);
     border-left: 1px solid rgba(255, 110, 0, 1);
-
     transform: translateX(-13px) translateY(-13px);
 
 }
@@ -464,7 +423,6 @@ h1 {
     z-index: 2;
     border-right: 1px solid rgba(0, 0, 0, 1);
     border-bottom: 1px solid rgba(0, 0, 0, 1);
-
     transform: translateX(-7px) translateY(-20px);
 }
 
@@ -472,7 +430,6 @@ h1 {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr auto 100px;
-
 
     border-radius: 25px 25px 25px 25px;
     border: none;
@@ -493,7 +450,9 @@ h1 {
 
 .user__name {
     grid-row: 2;
-    text-align: center;
+
+    display: flex;
+    justify-content: center;
 }
 
 .register {
@@ -543,7 +502,6 @@ Agenda
 =======================
 =======================*/
 .agenda {
-    /*grid-area: a;*/
     grid-column: 2;
     grid-row: 3;
     display: grid;
@@ -560,8 +518,6 @@ Agenda
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto;
-    /*grid-template-areas: "bar title dropdown";*/
-
 }
 
 .agenda__header--decoration {
@@ -569,7 +525,6 @@ Agenda
     border-radius: 0 75px 75px 75px;
     box-shadow: 10px -5px 0px -5px rgba(255, 110, 0, 1),
     -10px 5px 0px -5px rgba(0, 0, 0, 1);
-
 }
 
 .agenda__header--decoration::before, .agenda__header--decoration::after {
@@ -581,7 +536,6 @@ Agenda
 }
 
 .agenda__header--decoration::before {
-
     border-top: 1px solid rgba(255, 110, 0, 1);
     border-left: 1px solid rgba(255, 110, 0, 1);
     border-radius: 0 75px 75px 75px;
@@ -609,8 +563,6 @@ Agenda
     color: rgba(0, 0, 0, 1);
 
     border-radius: 0px 75px 75px 75px;
-    /*border: 1px solid rgba(255, 110, 0, 1);
-    border-top: 1px solid rgba(0, 0, 0, 1);*/
 }
 
 .agenda__dropdown {
@@ -651,8 +603,6 @@ Agenda
     margin-top: 0;
 }
 
-
-
 .agenda__list > .agenda__item:nth-child(2n+2) {
     background: transparent;
     box-shadow: 10px -5px 0px -5px rgba(255, 110, 0, 1),
@@ -675,13 +625,13 @@ Agenda
     background: rgba(0, 0, 0, 0.03);
 }
 
-
 .agenda__item {
     text-decoration: none;
     font-weight: 400;
     color: black;
 
 }
+
 .agenda__item:hover > .agenda__item-bar {
     display: block;
 }
@@ -709,7 +659,6 @@ Agenda
     grid-column: 2;
 }
 
-
 /*Presentation agenda__item*/
 .agenda__list > .agenda__item:nth-child(2n+2) {
     display: grid;
@@ -733,7 +682,7 @@ Agenda
     position: relative;
 }
 
-.agenda__list > .agenda__item:nth-child(2n+2) > .agenda__item-title::before{
+.agenda__list > .agenda__item:nth-child(2n+2) > .agenda__item-title::before {
     content: '';
     display: block;
     position: absolute;
@@ -743,7 +692,7 @@ Agenda
     top: 0;
     left: -41px;
     transform: translateY(7%);
-    background:  rgb(255,110,0);
+    background: rgb(255, 110, 0);
 }
 
 .presentation__dropdown {
@@ -769,18 +718,16 @@ Agenda
     grid-row: 2;
     margin: 0;
 }
-
+/*Presentation Plan*/
 @media screen and (max-width: 793px) {
     .agenda {
         margin: 0;
     }
 
-
-
     /*Presentation agenda__item*/
     .agenda__list > .agenda__item:nth-child(2n+2) {
         display: grid;
-        grid-template-columns: 15% repeat(3,1fr) 15%;
+        grid-template-columns: 15% repeat(3, 1fr) 15%;
         grid-gap: 10px;
     }
 
@@ -806,16 +753,13 @@ Agenda
     }
 
     .presentation__plan {
-        /*grid-column: 2/ span 3;*/
         grid-column: 3/ span 3;
         grid-row: 3;
     }
 
-    .agenda__list > .agenda__item:nth-child(2n+2) > .agenda__item-title::before{
+    .agenda__list > .agenda__item:nth-child(2n+2) > .agenda__item-title::before {
         display: none;
     }
-
-
 }
 
 .presentation__icon {
@@ -825,10 +769,8 @@ Agenda
 }
 
 .presentation__list {
-
     display: grid;
     grid-template-columns: 1fr 75px;
-
 
     grid-gap: 5px;
     margin: -20px 0 0 20px;
@@ -843,8 +785,6 @@ Agenda
 }
 
 .agenda__item--presentation-hover:hover >
-/*.agenda__item-title >*/
-/*.presentation >*/
 .presentation__dropdown {
     display: block;
     z-index: 30;
@@ -883,10 +823,7 @@ Agenda
     opacity: 1;
 
 }
-
-
-
-
+/*nav bar*/
 @media screen and (min-width: 960px) {
 
     .header .logo {
@@ -967,13 +904,12 @@ Agenda
     }
 }
 
-
-
-@media screen and (max-width: 960px) {
+/*@media screen and (max-width: 960px) {
 
     .main-grid {
         grid-template-columns: 1fr;
     }
+
     .date-place {
         grid-column: 1;
         grid-row: 2;
@@ -984,7 +920,8 @@ Agenda
     }
 
     .agenda {
-        grid-column: 1;}
+        grid-column: 1;
+    }
 
     .welcome-info {
         grid-row: 1;
@@ -1004,26 +941,21 @@ Agenda
         grid-column: 2;
     }
 
-
     .user {
         grid-row: 2;
-        grid-column: 3;
-        ;
+        grid-column: 3;;
     }
-}
-
+}*/
 
 @media screen and (max-width: 959px) {
     .main-grid {
         display: grid;
-        /*grid-template-areas: ". . ." ". d ." ". a ." "f f f";*/
-        grid-template-columns:  1fr 90% 1fr;
+        grid-template-columns: 1fr 90% 1fr;
         grid-template-rows: 75px auto;
         grid-gap: 20px;
     }
 
     .date-place {
-        /*grid-area: d;*/
         grid-column: 2;
         grid-row: 2;
         display: grid;
@@ -1084,7 +1016,9 @@ Agenda
         grid-row: 3;
         grid-column: 2;
         margin: 15px 0 0 0;
+        justify-self: center;
     }
+
 
     .agenda {
         grid-column: 2;
@@ -1109,10 +1043,9 @@ Agenda
         grid-column: 4;
     }
 
-
     .agenda__icon {
         font-size: 1.25em;
-        margin: 0 15px 0 0 ;
+        margin: 0 15px 0 0;
     }
 
     .presentation__icon {
@@ -1123,8 +1056,7 @@ Agenda
         font-size: 15px;
     }
 
-
-   .agenda__item--grid-presentation {
+    .agenda__item--grid-presentation {
         display: grid;
 
     }
@@ -1145,26 +1077,8 @@ Agenda
     .date-place__item > div {
         grid-row: 2;
         grid-column: 1/-1;
-
     }
+
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

@@ -22,12 +22,4 @@ public class UserServiceImpl implements UserService {
         return userRepository.findByUsername(username);
     }
 
-
-/*    public static void main(String[] args) {
-        PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        System.out.println(passwordEncoder.encode("user"));
-
-       String encodedPassword = "$2a$10$QyLX53D3T/2gpICovAYn8e0Y2aAPaOFXvuZP52hIB3wL/eYDcHzfa";
-
-    }*/
 }
