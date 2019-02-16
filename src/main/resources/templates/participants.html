@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Participants</title>
+</head>
+<body>
+<nav class="navbar navbar-light bg-light">
+    <span class="navbar-brand mb-0 h1"><a href="/home">Home</a></span>
+</nav>
+
+<div class="container mt-1">
+    <h1>Participants</h1>
+
+    <table class="table">
+        <thead class="thead-light">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">FirstName</th>
+            <th scope="col">LastName</th>
+
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="participant,index : ${participants}">
+            <th scope="row" th:text="${index.count}">#</th>
+            <td th:text="${participant.user.FirstName}">FirstName</td>
+            <td th:text="${participant.user.LastName}">LastName</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

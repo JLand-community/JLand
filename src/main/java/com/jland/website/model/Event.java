@@ -6,12 +6,12 @@ import java.util.Objects;
 public class Event {
 
     private long id;
-    private Conference conference;
     private String name;
     private String type;
     private LocalTime startTime;
     private LocalTime endTime;
     private int order;
+    private Presentation presentation;
 
     public long getId() {
         return id;
@@ -19,14 +19,6 @@ public class Event {
 
     public void setId(long id) {
         this.id = id;
-    }
-
-    public Conference getConference() {
-        return conference;
-    }
-
-    public void setConference(Conference conference) {
-        this.conference = conference;
     }
 
     public String getName() {
@@ -69,6 +61,13 @@ public class Event {
         this.order = order;
     }
 
+    public Presentation getPresentation() {
+        return presentation;
+    }
+
+    public void setPresentation(Presentation presentation) {
+        this.presentation = presentation;
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -87,7 +86,6 @@ public class Event {
     @Override
     public String toString() {
         return "Event{" +
-                "conference=" + conference +
                 ", name='" + name + '\'' +
                 ", type='" + type + '\'' +
                 ", startTime=" + startTime +

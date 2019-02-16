@@ -2,12 +2,15 @@ package com.jland.website.model;
 
 import java.util.Objects;
 
-public class User {
+public class User  {
 
     private long id;
     private String firstName;
     private String lastName;
     private String photo;
+    private String username;
+    private String password;
+    private String role;
 
     public User() {
     }
@@ -47,8 +50,33 @@ public class User {
         this.lastName = lastName;
     }
 
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setUserRole(String role) {
+        this.role = role;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+
     public String getPhoto() {
-        return photo;
+        return ("default".equals(photo)? photo : username) + ".png";
     }
 
     public void setPhoto(String photo) {
@@ -77,4 +105,6 @@ public class User {
                 ", photo='" + photo + '\'' +
                 '}';
     }
+
+
 }

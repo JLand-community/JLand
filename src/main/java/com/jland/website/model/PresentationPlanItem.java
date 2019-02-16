@@ -2,16 +2,16 @@ package com.jland.website.model;
 
 import java.util.Objects;
 
-public class PresentationPlan {
+public class PresentationPlanItem {
 
     private long id;
     private String item;
     private int order;
 
-    public PresentationPlan() {
+    public PresentationPlanItem() {
     }
 
-    public PresentationPlan(String item, int order) {
+    public PresentationPlanItem(String item, int order) {
         this.item = item;
         this.order = order;
     }
@@ -43,8 +43,8 @@ public class PresentationPlan {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof PresentationPlan)) return false;
-        PresentationPlan point = (PresentationPlan) o;
+        if (!(o instanceof PresentationPlanItem)) return false;
+        PresentationPlanItem point = (PresentationPlanItem) o;
         return getOrder() == point.getOrder() &&
                 Objects.equals(getId(), point.getId());
     }

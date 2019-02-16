@@ -1,18 +1,18 @@
 package com.jland.website.repository.mapper;
 
-import com.jland.website.model.PresentationPlan;
+import com.jland.website.model.PresentationPlanItem;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class PresentationPlanMapper implements RowMapper<PresentationPlan> {
+public class PresentationPlanMapper implements RowMapper<PresentationPlanItem> {
 
     @Override
-    public PresentationPlan mapRow(ResultSet resultSet, int i) throws SQLException {
-        PresentationPlan presentationPlan = new PresentationPlan();
-        presentationPlan.setId(resultSet.getLong("id"));
-        presentationPlan.setItem(resultSet.getString("point"));
-        return presentationPlan;
+    public PresentationPlanItem mapRow(ResultSet resultSet, int i) throws SQLException {
+        PresentationPlanItem presentationPlanItem = new PresentationPlanItem();
+        presentationPlanItem.setId(resultSet.getLong("id"));
+        presentationPlanItem.setItem(resultSet.getString("point"));
+        return presentationPlanItem;
     }
 }

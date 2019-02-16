@@ -1,3 +1,4 @@
+
 package com.jland.website.web.controller;
 
 import com.jland.website.service.ConferenceService;
@@ -26,3 +27,4 @@ public class ConferenceController {
         return new ResponseEntity<>(conferenceService.getById(id), HttpStatus.OK);
     }
 }
+

@@ -1,6 +1,6 @@
 package com.jland.website.service.impl;
 
-import com.jland.website.model.PresentationPlan;
+import com.jland.website.model.PresentationPlanItem;
 import com.jland.website.repository.PresentationPlanRepository;
 import com.jland.website.service.PresentationPlanService;
 import com.jland.website.web.dto.PresentationPlanDto;
@@ -20,7 +20,7 @@ public class PresentationPlanServiceImpl implements PresentationPlanService {
 
     @Override
     public List<PresentationPlanDto> getAllByPresentationId(Long presentationId) {
-        List<PresentationPlan> presentationPlan = presentationPlanRepository.getAllByPresentationId(presentationId);
-        return presentationPlan.stream().map(PresentationPlanDto::from).collect(Collectors.toList());
+        List<PresentationPlanItem> presentationPlanItem = presentationPlanRepository.getAllByPresentationId(presentationId);
+        return presentationPlanItem.stream().map(PresentationPlanDto::from).collect(Collectors.toList());
     }
 }

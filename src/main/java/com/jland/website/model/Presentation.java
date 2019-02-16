@@ -8,7 +8,7 @@ public class Presentation {
     private long id;
     private Event event;
     private String name;
-    private List<PresentationPlan> items;
+    private List<PresentationPlanItem> presentationPlan;
     private User user;
 
     public long getId() {
@@ -35,12 +35,12 @@ public class Presentation {
         this.name = name;
     }
 
-    public List<PresentationPlan> getItems() {
-        return items;
+    public List<PresentationPlanItem> getPresentationPlan() {
+        return presentationPlan;
     }
 
-    public void setItems(List<PresentationPlan> items) {
-        this.items = items;
+    public void setPresentationPlan(List<PresentationPlanItem> presentationPlan) {
+        this.presentationPlan = presentationPlan;
     }
 
     public User getUser() {
@@ -70,7 +70,7 @@ public class Presentation {
         return "Presentation{" +
                 "event=" + event +
                 ", name='" + name + '\'' +
-                ", items=" + items +
+                ", presentationPlan=" + presentationPlan +
                 ", user=" + user +
                 '}';
     }

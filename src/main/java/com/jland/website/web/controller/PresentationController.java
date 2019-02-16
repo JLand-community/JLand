@@ -1,3 +1,4 @@
+
 package com.jland.website.web.controller;
 
 import com.jland.website.service.PresentationPlanService;
@@ -14,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/presentations", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+@RequestMapping(value = "/conferences/{conferenceId}/presentations", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class PresentationController {
     private static final Logger LOGGER = LoggerFactory.getLogger(PresentationController.class);
 
@@ -26,7 +27,7 @@ public class PresentationController {
         this.presentationPlanService = presentationPlanService;
     }
 
-    @RequestMapping(value = "/conferences/{conferenceId}", method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<List<PresentationDto>> getAllByConferenceId(@PathVariable("conferenceId") Long conferenceId) {
         LOGGER.info("Getting all presentations by conference Id = {}", conferenceId);
         return new ResponseEntity<>(presentationService.getAllByConferenceId(conferenceId), HttpStatus.OK);
@@ -38,3 +39,4 @@ public class PresentationController {
         return new ResponseEntity<>(presentationPlanService.getAllByPresentationId(presentationId), HttpStatus.OK);
     }
 }
+

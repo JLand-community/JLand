@@ -1,6 +1,6 @@
 package com.jland.website.web.dto;
 
-import com.jland.website.model.PresentationPlan;
+import com.jland.website.model.PresentationPlanItem;
 
 public class PresentationPlanDto {
 
@@ -21,8 +21,8 @@ public class PresentationPlanDto {
         this.item = item;
     }
 
-    public static PresentationPlanDto from(PresentationPlan presentationPlan) {
-        return new PresentationPlanDto(presentationPlan.getItem());
+    public static PresentationPlanDto from(PresentationPlanItem presentationPlanItem) {
+        return new PresentationPlanDto(presentationPlanItem.getItem());
     }
 
     @Override
