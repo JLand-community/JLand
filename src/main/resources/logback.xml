@@ -3,8 +3,8 @@
 
     <appender name="fileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <file>src/log/log.log</file>
-            <FileNamePattern>src/log/log_%d{yyyy-MM-dd}.log</FileNamePattern>
+            <file>log/log.log</file>
+            <FileNamePattern>log/log_%d{yyyy-MM-dd}.log</FileNamePattern>
             <maxHistory>30</maxHistory>
         </rollingPolicy>
 
@@ -13,8 +13,15 @@
         </encoder>
     </appender>
 
+    <appender name="consoleLog" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%mdc %d{HH:mm:ss} %-5level [%thread] %logger{35} - %msg %n</pattern>
+        </encoder>
+    </appender>
+
     <root>
         <level value="DEBUG" />
         <appender-ref ref="fileAppender"/>
+        <appender-ref ref="consoleLog"/>
     </root>
 </configuration>

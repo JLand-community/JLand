@@ -53,7 +53,7 @@ class PresentationControllerTest {
         given(presentationService.getAllByConferenceId(1L)).willReturn(presentationDtos);
 
         // When Then
-        mockMvc.perform(get("/presentations/conferences/1").contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
+        mockMvc.perform(get("/conferences/1/presentations").contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$[0].presentationName", is(dto.getPresentationName())))
@@ -69,7 +69,7 @@ class PresentationControllerTest {
         given(presentationPlanService.getAllByPresentationId(anyLong())).willReturn(Collections.singletonList(dto));
 
         // When Then
-        mockMvc.perform(get("/presentations/1/plan"))
+        mockMvc.perform(get("/conferences/1/presentations/1/plan"))
         .andExpect(status().isOk())
         .andExpect(jsonPath("$[0].item", is(dto.getItem())));
     }

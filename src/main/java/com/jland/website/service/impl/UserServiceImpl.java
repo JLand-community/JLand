@@ -1,25 +1,29 @@
 package com.jland.website.service.impl;
 
-
 import com.jland.website.model.User;
 import com.jland.website.repository.UserRepository;
 import com.jland.website.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UserService {
 
-    private UserRepository userRepository;
-    @Autowired
+    private final UserRepository userRepository;
+
     public UserServiceImpl(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
     @Override
     public User findUserByUsername(String username) {
-        return userRepository.findByUsername(username);
+        Optional<User> user = userRepository.findByUsername(username);
+        if(user.isPresent()) {
+            return user.get();
+        }
+        throw new UsernameNotFoundException(username);
     }
-
 }

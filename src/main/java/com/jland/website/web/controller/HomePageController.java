@@ -2,20 +2,19 @@ package com.jland.website.web.controller;
 
 import com.jland.website.model.Conference;
 
+import com.jland.website.model.User;
 import com.jland.website.service.ConferenceService;
 import com.jland.website.service.EventService;
 import com.jland.website.service.ParticipantService;
 import com.jland.website.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.security.Principal;
 
 @Controller
 @RequestMapping(value = {"/home", "/"})
@@ -28,7 +27,6 @@ public class HomePageController {
     private final ParticipantService participantService;
     private final UserService userService;
 
-    @Autowired
     public HomePageController(ConferenceService conferenceService, EventService eventService, ParticipantService participantService, UserService userService) {
         this.conferenceService = conferenceService;
         this.eventService = eventService;
@@ -37,10 +35,9 @@ public class HomePageController {
     }
 
     @GetMapping
-    public String mainPage(Model model, @AuthenticationPrincipal Authentication authentication) {
+    public String mainPage(Model model, Principal principal)  {
         Conference conference = conferenceService.getNearestConference();
-        User userDetails = (User) authentication.getPrincipal();
-        com.jland.website.model.User user = userService.findUserByUsername(userDetails.getUsername());
+        User user = userService.findUserByUsername(principal.getName());
         boolean isParticipant = participantService.isParticipant(user.getId(), conference.getId());
         LOGGER.info("Request for displaying last created conference {} and its agenda events", conference);
         model.addAttribute("conference", conference);

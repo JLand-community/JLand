@@ -12,7 +12,7 @@ import java.util.List;
 @Repository
 public class JdbcEventRepository implements EventRepository {
 
-    private static final EventMapper eventMapper = new EventMapper();
+    private final EventMapper eventMapper = new EventMapper();
     private static final String GET_CONFERENCE_EVENTS_SQL =
             "SELECT e.id event_id, e.type, e.start_time, e.end_time, e.name, u.first_name, u.last_name, p.id presentation_id, p.name presentation_name \n"+
             "FROM jland_site.event e\n"+

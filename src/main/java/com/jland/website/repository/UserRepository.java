@@ -2,7 +2,9 @@ package com.jland.website.repository;
 
 import com.jland.website.model.User;
 
+import java.util.Optional;
+
 public interface UserRepository {
 
-    User findByUsername(String username);
+    Optional<User> findByUsername(String username);
 }

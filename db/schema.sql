@@ -116,3 +116,6 @@ ALTER TABLE jland_site.user
 ADD COLUMN username VARCHAR,
 ADD COLUMN password VARCHAR,
 ADD COLUMN user_role VARCHAR;
+
+ALTER TABLE jland_site.event ALTER COLUMN event_order SET NOT NULL;
+ALTER TABLE jland_site.presentation_plan ALTER COLUMN item_order SET NOT NULL;

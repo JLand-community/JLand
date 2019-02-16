@@ -7,7 +7,6 @@ import com.jland.website.web.dto.PresentationDto;
 import com.jland.website.web.dto.PresentationPlanDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -16,20 +15,19 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/presentations", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+@RequestMapping(value = "/conferences/{conferenceId}/presentations", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class PresentationController {
     private static final Logger LOGGER = LoggerFactory.getLogger(PresentationController.class);
 
     private final PresentationService presentationService;
     private final PresentationPlanService presentationPlanService;
 
-    @Autowired
     public PresentationController(PresentationService presentationService, PresentationPlanService presentationPlanService) {
         this.presentationService = presentationService;
         this.presentationPlanService = presentationPlanService;
     }
 
-    @RequestMapping(value = "/conferences/{conferenceId}", method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<List<PresentationDto>> getAllByConferenceId(@PathVariable("conferenceId") Long conferenceId) {
         LOGGER.info("Getting all presentations by conference Id = {}", conferenceId);
         return new ResponseEntity<>(presentationService.getAllByConferenceId(conferenceId), HttpStatus.OK);

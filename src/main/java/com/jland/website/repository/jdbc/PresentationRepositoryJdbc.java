@@ -12,7 +12,7 @@ import java.util.List;
 @Repository
 public class PresentationRepositoryJdbc implements PresentationRepository {
 
-    private static final PresentationMapper presentationMapper = new PresentationMapper();
+    private final PresentationMapper presentationMapper = new PresentationMapper();
     private static final String GET_ALL_PRESENTATIONS_SQL = "select e.id event_id, p.id presentation_id, e.name event_name, p.name presentation_name, e.type, e.start_time, e.end_time, u.first_name, u.last_name\n" +
             " from jland_site.event e left join jland_site.presentation p on e.id=p.event_id join jland_site.user u on p.user_id=u.id where e.conference_id = :conference_id order by e.event_order asc;";
 
