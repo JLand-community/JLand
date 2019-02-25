@@ -79,3 +79,4 @@ INSERT INTO jland_site."user" (id, first_name, last_name, photo, username, passw
 INSERT INTO jland_site."user" (id, first_name, last_name, photo, username, password, user_role) VALUES (3, 'Alena', 'Stroganova', 'default', 'stroale', '$2a$10$QyLX53D3T/2gpICovAYn8e0Y2aAPaOFXvuZP52hIB3wL/eYDcHzfa', 'ROLE_USER');
 INSERT INTO jland_site."user" (id, first_name, last_name, photo, username, password, user_role) VALUES (7, 'User', '', 'default', 'user', '$2a$10$QyLX53D3T/2gpICovAYn8e0Y2aAPaOFXvuZP52hIB3wL/eYDcHzfa', 'ROLE_USER');
 INSERT INTO jland_site."user" (id, first_name, last_name, photo, username, password, user_role) VALUES (8, 'Admin', '', 'default', 'admin', '$2a$10$WWCV94TZIFo/gxETY3x2oeh9oKGk4HKx9tOyqT9ERVqKeHLW/GY8K', 'ROLE_ADMIN');
+INSERT INTO jland_site."user" (first_name, last_name, photo, username, password, user_role) VALUES ('Kate', 'Guz', null, 'guzkate', '$2a$10$QyLX53D3T/2gpICovAYn8e0Y2aAPaOFXvuZP52hIB3wL/eYDcHzfa', 'ROLE_USER');
