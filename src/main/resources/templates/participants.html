@@ -25,10 +25,10 @@
     <input type="checkbox" id="nav-toggle-input" class="nav-toggle__input">
     <nav class="nav-bar">
         <ul class="menu">
-            <li class="menu__item"><a href="/home" class="menu__link menu__link--active ">Home</a></li>
+            <li class="menu__item"><a href="/home" class="menu__link">Home</a></li>
             <li class="menu__item"><a href="#" class="menu__link">Apply for presentation</a></li>
             <li class="menu__item"><a th:href="@{'/conferences/'+${conferenceId}+'/participants'}"
-                                      class="menu__link">Participants</a></li>
+                                      class="menu__link menu__link--active ">Participants</a></li>
             <li class="menu__item" th:if="${user.role}=='ROLE_ADMIN'"><a href="#" class="menu__link">All Requests</a></li>
         </ul>
         <form th:action="@{/logout}" method="post" class="logout">
