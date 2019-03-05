@@ -1,43 +1,87 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!--font-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Plaster" rel="stylesheet">
+    <!--font awesome icons-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+          integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+    <!--custom styles:-->
+    <link rel="stylesheet" href="/assets/css/mainpage.css">
+    <link rel="stylesheet" href="/assets/css/participants.css">
+
+    <link rel="icon" type="image/png" href="/assets/img/favicon.png"/>
 
     <title>Participants</title>
 </head>
-<body>
-<nav class="navbar navbar-light bg-light">
-    <span class="navbar-brand mb-0 h1"><a href="/home">Home</a></span>
-</nav>
+<body class="main-grid">
 
-<div class="container mt-1">
-    <h1>Participants</h1>
+<header class="header">
+    <input type="checkbox" id="nav-toggle-input" class="nav-toggle__input">
+    <nav class="nav-bar">
+        <ul class="menu">
+            <li class="menu__item"><a href="/home" class="menu__link">Home</a></li>
+            <li class="menu__item"><a href="#" class="menu__link">Apply for presentation</a></li>
+            <li class="menu__item"><a th:href="@{'/conferences/'+${conferenceId}+'/participants'}"
+                                      class="menu__link menu__link--active ">Participants</a></li>
+            <li class="menu__item" th:if="${user.role}=='ROLE_ADMIN'"><a href="#" class="menu__link">All Requests</a></li>
+        </ul>
+        <form th:action="@{/logout}" method="post" class="logout">
+            <button type="submit" class="logout__button" title="Logout">
+                <i class="fas fa-sign-out-alt logout__icon"></i>
+            </button>
+        </form>
+    </nav>
 
-    <table class="table">
-        <thead class="thead-light">
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">FirstName</th>
-            <th scope="col">LastName</th>
+    <div class="logo ">
+        <p class="logo__letter logo__letter--j logo__letter--plaster">j</p>
+        <p class="logo__letter logo__letter--l logo__letter--plaster">l</p>
+        <p class="logo__letter logo__letter--amp logo--decoration">&</p>
+    </div>
 
-        </tr>
-        </thead>
+    <label for="nav-toggle-input" class="nav-toggle__label">
+        <i class="fas fa-bars nav-toggle-label__icon"></i>
+    </label>
+</header>
 
-        <tbody>
-        <tr th:each="participant,index : ${participants}">
-            <th scope="row" th:text="${index.count}">#</th>
-            <td th:text="${participant.user.FirstName}">FirstName</td>
-            <td th:text="${participant.user.LastName}">LastName</td>
-        </tr>
-        </tbody>
-    </table>
-</div>
+<section class="participants">
+
+    <div class="participants__count participants--background">
+        <i class="fas fa-users participants__icon"></i>
+        <p class="participants__counter" th:text="${count}"></p>
+    </div>
+
+    <ul class="participants__list">
+        <li class="participants__item participants--background" th:each="participant: ${participants}">
+            <img th:src="@{/assets/img/users/{userPhoto}(userPhoto=${participant.user.photo})}"
+                 alt="User avatar" class="participants__photo">
+            <p class="participants__name" th:text="${participant.user.FirstName} + ' ' + ${participant.user.LastName}">
+            </p>
+        </li>
+    </ul>
+</section>
+
+<footer class="footer">
+    <p class="footer__item"><i class="far fa-copyright footer__icon"></i>2018 JLand. Copyright notice</p>
+
+</footer>
+
+<button id="goUpButton" title="Back to up" class="button-go-up">
+    <i class="fas fa-angle-up button-go-up__icon"></i>
+</button>
+
+<!--scripts-->
+<script src="js/application.js"></script>
 
 </body>
 </html>
+
+
