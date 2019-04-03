@@ -76,7 +76,7 @@ public class User  {
 
 
     public String getPhoto() {
-        return ("default".equals(photo)? photo : username) + ".png";
+        return ("default".equals(photo)? photo : lastName + firstName) + ".png";
     }
 
     public void setPhoto(String photo) {

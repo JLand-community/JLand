@@ -60,8 +60,8 @@ INSERT INTO jland_site.participant (user_id, conference_id) VALUES (2, 1);
 
 /*users*/
 INSERT INTO jland_site."user" (first_name, last_name, photo, username, password, user_role) VALUES ('Serhii', 'Zubenko', '', 'zubeser', '$2a$10$QyLX53D3T/2gpICovAYn8e0Y2aAPaOFXvuZP52hIB3wL/eYDcHzfa', 'ROLE_USER');
-INSERT INTO jland_site."user" (first_name, last_name, photo, username, password, user_role) VALUES ('Maxim', 'Stezhka', '', 'stezmax', '$2a$10$QyLX53D3T/2gpICovAYn8e0Y2aAPaOFXvuZP52hIB3wL/eYDcHzfa', 'ROLE_USER');
-INSERT INTO jland_site."user" (first_name, last_name, photo, username, password, user_role) VALUES ('Alexey', 'Sheleg', 'default', 'shelale', '$2a$10$QyLX53D3T/2gpICovAYn8e0Y2aAPaOFXvuZP52hIB3wL/eYDcHzfa', 'ROLE_USER');
+INSERT INTO jland_site."user" (first_name, last_name, photo, username, password, user_role) VALUES ('Maxim', 'Stezhka', '', 'stezmak', '$2a$10$QyLX53D3T/2gpICovAYn8e0Y2aAPaOFXvuZP52hIB3wL/eYDcHzfa', 'ROLE_USER');
+INSERT INTO jland_site."user" (first_name, last_name, photo, username, password, user_role) VALUES ('Alexey', 'Sheleg', 'default', 'shemale', '$2a$10$QyLX53D3T/2gpICovAYn8e0Y2aAPaOFXvuZP52hIB3wL/eYDcHzfa', 'ROLE_USER');
 INSERT INTO jland_site."user" (first_name, last_name, photo, username, password, user_role) VALUES ( 'Artem', 'Lebediev', null, 'lebeart', '$2a$10$QyLX53D3T/2gpICovAYn8e0Y2aAPaOFXvuZP52hIB3wL/eYDcHzfa', 'ROLE_USER');
 INSERT INTO jland_site."user" (first_name, last_name, photo, username, password, user_role) VALUES ( 'Daniil', 'Ponomarev', 'default', 'ponodan', '$2a$10$QyLX53D3T/2gpICovAYn8e0Y2aAPaOFXvuZP52hIB3wL/eYDcHzfa', 'ROLE_USER');
 INSERT INTO jland_site."user" (first_name, last_name, photo, username, password, user_role) VALUES ( 'Sergey', 'Demenkov', 'default', 'demeser', '$2a$10$QyLX53D3T/2gpICovAYn8e0Y2aAPaOFXvuZP52hIB3wL/eYDcHzfa', 'ROLE_USER');
@@ -75,7 +75,7 @@ INSERT INTO jland_site."user" (first_name, last_name, photo, username, password,
 INSERT INTO jland_site."user" (first_name, last_name, photo, username, password, user_role) VALUES ( 'Vasiliy', 'Svinenkov', null, 'svinvas', '$2a$10$QyLX53D3T/2gpICovAYn8e0Y2aAPaOFXvuZP52hIB3wL/eYDcHzfa', 'ROLE_USER');
 INSERT INTO jland_site."user" (first_name, last_name, photo, username, password, user_role) VALUES ( 'Julia', 'Shinkarenko', null, 'shinjul', '$2a$10$QyLX53D3T/2gpICovAYn8e0Y2aAPaOFXvuZP52hIB3wL/eYDcHzfa', 'ROLE_USER');
 INSERT INTO jland_site."user" (first_name, last_name, photo, username, password, user_role) VALUES ('Oksana', 'Gromova', '', 'gromoks', '$2a$10$WWCV94TZIFo/gxETY3x2oeh9oKGk4HKx9tOyqT9ERVqKeHLW/GY8K', 'ROLE_ADMIN');
-INSERT INTO jland_site."user" (first_name, last_name, photo, username, password, user_role) VALUES ('Yana', 'Demenkova', '', 'demeyan', '$2a$10$QyLX53D3T/2gpICovAYn8e0Y2aAPaOFXvuZP52hIB3wL/eYDcHzfa', 'ROLE_USER');
+INSERT INTO jland_site."user" (first_name, last_name, photo, username, password, user_role) VALUES ('Yana', 'Demenkova', '', 'lyseyan', '$2a$10$QyLX53D3T/2gpICovAYn8e0Y2aAPaOFXvuZP52hIB3wL/eYDcHzfa', 'ROLE_USER');
 INSERT INTO jland_site."user" (first_name, last_name, photo, username, password, user_role) VALUES ('Anatoliy', 'Trubin', '', 'trubana', '$2a$10$QyLX53D3T/2gpICovAYn8e0Y2aAPaOFXvuZP52hIB3wL/eYDcHzfa', 'ROLE_USER');
 INSERT INTO jland_site."user" (first_name, last_name, photo, username, password, user_role) VALUES ('Alena', 'Stroganova', 'default', 'stroale', '$2a$10$QyLX53D3T/2gpICovAYn8e0Y2aAPaOFXvuZP52hIB3wL/eYDcHzfa', 'ROLE_USER');
 INSERT INTO jland_site."user" (first_name, last_name, photo, username, password, user_role) VALUES ('User', '', 'default', 'user', '$2a$10$QyLX53D3T/2gpICovAYn8e0Y2aAPaOFXvuZP52hIB3wL/eYDcHzfa', 'ROLE_USER');
