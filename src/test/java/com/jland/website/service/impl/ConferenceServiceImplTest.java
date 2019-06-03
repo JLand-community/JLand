@@ -42,10 +42,10 @@ class ConferenceServiceImplTest {
     void testGetNearestConferenceNegative() throws Exception {
         ConferenceRepository mockConferenceRepository = Mockito.mock(ConferenceRepository.class);
 
-        when(mockConferenceRepository.getNearestConference()).thenReturn(Optional.empty());
+        when(mockConferenceRepository.getUpcomingConference()).thenReturn(Optional.empty());
         ConferenceServiceImpl conferenceService = new ConferenceServiceImpl(mockConferenceRepository);
 
-        Exception exception = assertThrows(EntityNotFoundException.class, conferenceService::getNearestConference);
+        Exception exception = assertThrows(EntityNotFoundException.class, conferenceService::getUpcomingConference);
         assertEquals("Anyone conference hasn't been found", exception.getMessage());
     }
 
@@ -55,9 +55,9 @@ class ConferenceServiceImplTest {
         Conference conference = new Conference();
         conference.setId(10L);
 
-        when(mockConferenceRepository.getNearestConference()).thenReturn(Optional.of(conference));
+        when(mockConferenceRepository.getUpcomingConference()).thenReturn(Optional.of(conference));
         ConferenceServiceImpl conferenceService = new ConferenceServiceImpl(mockConferenceRepository);
-        Conference actualNearestConference = conferenceService.getNearestConference();
+        Conference actualNearestConference = conferenceService.getUpcomingConference();
 
         assertEquals(conference.getId(), actualNearestConference.getId());
     }

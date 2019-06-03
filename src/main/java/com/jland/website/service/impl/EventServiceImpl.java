@@ -1,10 +1,7 @@
 package com.jland.website.service.impl;
 
 import com.jland.website.model.Event;
-import com.jland.website.model.Presentation;
-import com.jland.website.model.PresentationPlanItem;
 import com.jland.website.repository.EventRepository;
-import com.jland.website.repository.PresentationPlanRepository;
 import com.jland.website.service.EventService;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -13,25 +10,13 @@ import java.util.List;
 public class EventServiceImpl implements EventService {
 
     private final EventRepository eventRepository;
-    private final PresentationPlanRepository presentationPlanRepository;
 
-    public EventServiceImpl(EventRepository eventRepository, PresentationPlanRepository presentationPlanRepository) {
+    public EventServiceImpl(EventRepository eventRepository) {
         this.eventRepository = eventRepository;
-        this.presentationPlanRepository = presentationPlanRepository;
     }
 
     @Override
     public List<Event> getAllByConferenceId(Long conferenceId) {
-
-        List<Event> events = eventRepository.getAllByConferenceId(conferenceId);
-        for(Event event : events) {
-            if("Presentation".equals(event.getType())){
-                Presentation presentation = event.getPresentation();
-                long id = presentation.getId();
-                List<PresentationPlanItem> planItems = presentationPlanRepository.getAllByPresentationId(id);
-                presentation.setPresentationPlan(planItems);
-            }
-        }
-        return events;
+        return eventRepository.getAllByConferenceId(conferenceId);
     }
 }

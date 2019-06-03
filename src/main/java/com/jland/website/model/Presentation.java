@@ -6,10 +6,8 @@ import java.util.Objects;
 public class Presentation {
 
     private long id;
-    private Event event;
     private String name;
     private List<PresentationPlanItem> presentationPlan;
-    private User user;
 
     public long getId() {
         return id;
@@ -17,14 +15,6 @@ public class Presentation {
 
     public void setId(long id) {
         this.id = id;
-    }
-
-    public Event getEvent() {
-        return event;
-    }
-
-    public void setEvent(Event event) {
-        this.event = event;
     }
 
     public String getName() {
@@ -35,20 +25,8 @@ public class Presentation {
         this.name = name;
     }
 
-    public List<PresentationPlanItem> getPresentationPlan() {
-        return presentationPlan;
-    }
-
     public void setPresentationPlan(List<PresentationPlanItem> presentationPlan) {
         this.presentationPlan = presentationPlan;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
     }
 
     @Override
@@ -68,10 +46,8 @@ public class Presentation {
     @Override
     public String toString() {
         return "Presentation{" +
-                "event=" + event +
                 ", name='" + name + '\'' +
                 ", presentationPlan=" + presentationPlan +
-                ", user=" + user +
                 '}';
     }
 }

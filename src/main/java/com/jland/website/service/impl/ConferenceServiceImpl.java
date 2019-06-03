@@ -27,8 +27,8 @@ public class ConferenceServiceImpl implements ConferenceService {
     }
 
     @Override
-    public Conference getNearestConference() {
-        Optional<Conference> conference = conferenceRepository.getNearestConference();
+    public Conference getUpcomingConference() {
+        Optional<Conference> conference = conferenceRepository.getUpcomingConference();
         if (conference.isPresent()) {
             return conference.get();
         }

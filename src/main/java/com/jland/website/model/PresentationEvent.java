@@ -1,28 +1,18 @@
-package com.jland.website.web.dto;
+package com.jland.website.model;
 
-import com.jland.website.model.Presentation;
+public class PresentationEvent extends Event {
 
-public class PresentationDto {
-
+    private long presentationId;
     private String presentationName;
     private String userFirstName;
     private String userLastName;
 
-    public PresentationDto(String presentationName, String userFirstName, String userLastName) {
-        this.presentationName = presentationName;
-        this.userFirstName = userFirstName;
-        this.userLastName = userLastName;
+    public long getPresentationId() {
+        return presentationId;
     }
 
-    public PresentationDto() {
-
-    }
-
-    public static PresentationDto from(Presentation presentation) {
-        return  new PresentationDto(
-                presentation.getName(),
-                presentation.getUser().getFirstName(),
-                presentation.getUser().getLastName());
+    public void setPresentationId(long presentationId) {
+        this.presentationId = presentationId;
     }
 
     public String getPresentationName() {
@@ -51,8 +41,9 @@ public class PresentationDto {
 
     @Override
     public String toString() {
-        return "PresentationDto{" +
-                "presentationName='" + presentationName + '\'' +
+        return super.toString() + "PresentationEvent{" +
+                "presentationId=" + presentationId +
+                ", presentationName='" + presentationName + '\'' +
                 ", userFirstName='" + userFirstName + '\'' +
                 ", userLastName='" + userLastName + '\'' +
                 '}';

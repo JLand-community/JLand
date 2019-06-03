@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="getEventsByConferenceIdSql" class="java.lang.String">
+        <constructor-arg value="SELECT e.id event_id, e.type, e.start_time, e.end_time, e.name, e.event_order,
+                                        u.first_name, u.last_name,
+                                        p.id presentation_id, p.name presentation_name
+                                FROM jland_site.event e
+                                LEFT JOIN jland_site.presentation p ON p.event_id = e.id
+                                LEFT JOIN jland_site.user u ON u.id = p.user_id
+                                where e.conference_id = :conference_id
+                                order by e.event_order asc;"/>
+    </bean>
+
+</beans>
+

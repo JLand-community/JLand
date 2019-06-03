@@ -13,16 +13,7 @@ public class PresentationMapper implements RowMapper<Presentation> {
         Presentation presentation = new Presentation();
         presentation.setId(resultSet.getLong("presentation_id"));
         presentation.setName(resultSet.getString("presentation_name"));
-        User user = getUser(resultSet);
-        presentation.setUser(user);
         return presentation;
-    }
-
-    private User getUser(ResultSet resultSet) throws SQLException {
-        User user = new User();
-        user.setFirstName(resultSet.getString("first_name"));
-        user.setLastName(resultSet.getString("last_name"));
-        return user;
     }
 
 }

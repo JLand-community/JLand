@@ -36,7 +36,7 @@ public class HomePageController {
 
     @GetMapping
     public String mainPage(Model model, Principal principal)  {
-        Conference conference = conferenceService.getNearestConference();
+        Conference conference = conferenceService.getUpcomingConference();
         User user = userService.findUserByUsername(principal.getName());
         boolean isParticipant = participantService.isParticipant(user.getId(), conference.getId());
         LOGGER.info("Request for displaying last created conference {} and its agenda events", conference);

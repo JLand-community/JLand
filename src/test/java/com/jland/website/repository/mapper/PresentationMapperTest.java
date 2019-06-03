@@ -25,7 +25,5 @@ class PresentationMapperTest {
         Presentation presentation = mapper.mapRow(resultSet, 0);
         Assertions.assertEquals(1L, presentation.getId());
         Assertions.assertEquals("presentation", presentation.getName());
-        Assertions.assertEquals("first", presentation.getUser().getFirstName());
-        Assertions.assertEquals("last", presentation.getUser().getLastName());
-    }
+}
 }

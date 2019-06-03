@@ -8,7 +8,7 @@ public interface ConferenceRepository {
 
     Optional<Conference> getById(Long conferenceId);
 
-    Optional<Conference> getNearestConference();
+    Optional<Conference> getUpcomingConference();
 
 
 }

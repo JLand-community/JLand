@@ -6,6 +6,6 @@ public interface ConferenceService {
 
     Conference getById(Long conferenceId);
 
-    Conference getNearestConference();
+    Conference getUpcomingConference();
 
 }
