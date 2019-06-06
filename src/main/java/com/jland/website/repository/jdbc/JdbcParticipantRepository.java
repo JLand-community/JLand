@@ -21,15 +21,15 @@ public class JdbcParticipantRepository implements ParticipantRepository {
     private static final String ADD_PARTICIPANT_SQL = "INSERT INTO jland_site.participant (user_id, conference_id) VALUES(:userId, :conferenceId);";
     private static final String REMOVE_PARTICIPANT_SQL = "DELETE FROM jland_site.participant WHERE user_id = :userId AND conference_id = :conferenceId;";
     private static final String GET_ALL_PARTICIPANT_SQL =
-            "SELECT p.id participant_id,p.user_id user_id, u.first_name, u.last_name, u.photo, u.username, u.user_role, u.password\n" +
+            "SELECT p.id participant_id, p.user_id user_id, u.first_name, u.last_name, u.photo \n" +
             "FROM jland_site.participant p\n" +
             "JOIN jland_site.user u ON p.user_id = u.id\n" +
             "WHERE p.conference_id = :conferenceId;";
 
     private static final String FIND_PARTICIPANT_SQL =
-            "select p.id participant_id, p.user_id user_id,  u.first_name, u.last_name " +
+            "select p.id participant_id, p.user_id user_id, u.first_name, u.last_name, u.photo " +
             "from jland_site.participant p\n" +
-            "join jland_site.user u on p.user_id = u.id where user_id = :userId and conference_id = :conferenceId;";
+            "join jland_site.user u on p.user_id = u.id where username = :username  and conference_id = :conferenceId;";
 
     private final NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 

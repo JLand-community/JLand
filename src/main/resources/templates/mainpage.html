@@ -15,9 +15,9 @@
           integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
     <!--custom styles:-->
-    <link rel="stylesheet" href="/assets/css/mainpage.css">
+    <link rel="stylesheet" href="/jland-react/src/css/mainpage.css">
 
-    <link rel="icon" type="image/png" href="/assets/img/favicon.png"/>
+    <link rel="icon" type="image/png" href="/jland-react/src/img/favicon.png"/>
 
     <title>JLand Home Page</title>
 </head>
@@ -57,7 +57,7 @@
     </div>
 
     <div class="date-place__board">
-        <img src="/assets/img/whiteboard2fhd.png" alt="" class="date-place__board--size">
+        <img src="/jland-react/src/img/whiteboard2fhd.png" alt="" class="date-place__board--size">
     </div>
 
     <div class="date-place__item ">
@@ -79,7 +79,7 @@
     </div>
     <div class="user ">
         <div class="user__grid user--decoration">
-            <img th:src="@{/assets/img/users/{userPhoto}(userPhoto=${user.photo})}" alt="User avatar" class="user__avatar user__avatar--resize">
+            <img th:src="@{/jland-react/src/img/users/{userPhoto}(userPhoto=${user.photo})}" alt="User avatar" class="user__avatar user__avatar--resize">
             <div class="user__name" th:text="${user.firstName} + ' '  + ${user.lastName}">UserName UserLastName
             </div>
 
@@ -121,7 +121,7 @@
             <p class="agenda__item-time" contenteditable="true"
                th:text="${{event.startTime}} + ' - ' + ${{event.endTime}}">Event time interval</p>
 
-            <img src="/assets/img/coffee.png" class="agenda__item--img-coffee"
+            <img src="/jland-react/src/img/coffee.png" class="agenda__item--img-coffee"
                  th:if="${event.type}=='Coffee'">
 
             <div class="agenda__item-title" th:if="${event.type}=='Presentation'">

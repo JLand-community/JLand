@@ -1,0 +1,4 @@
+export const AUTHENTICATED = "AUTHENTICATED";
+export const LOGOUT = "LOGOUT";
+export const GET_UPCOMING_CONFERENCE ="GET_UPCOMING_CONFERENCE";
+export const GET_USER = "GET_USER";

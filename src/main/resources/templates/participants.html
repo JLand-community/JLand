@@ -15,10 +15,10 @@
           integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
     <!--custom styles:-->
-    <link rel="stylesheet" href="/assets/css/mainpage.css">
-    <link rel="stylesheet" href="/assets/css/participants.css">
+    <link rel="stylesheet" href="/jland-react/src/css/mainpage.css">
+    <link rel="stylesheet" href="/jland-react/src/css/participants.css">
 
-    <link rel="icon" type="image/png" href="/assets/img/favicon.png"/>
+    <link rel="icon" type="image/png" href="/jland-react/src/img/favicon.png"/>
 
     <title>Participants</title>
 </head>
@@ -61,7 +61,7 @@
 
     <ul class="participants__list">
         <li class="participants__item participants--background" th:each="participant: ${participants}">
-            <img th:src="@{/assets/img/users/{userPhoto}(userPhoto=${participant.user.photo})}"
+            <img th:src="@{/jland-react/src/img/users/{userPhoto}(userPhoto=${participant.user.photo})}"
                  alt="User avatar" class="participants__photo">
             <p class="participants__name" th:text="${participant.user.FirstName} + ' ' + ${participant.user.LastName}">
             </p>

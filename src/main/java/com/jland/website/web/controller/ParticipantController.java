@@ -3,6 +3,8 @@ package com.jland.website.web.controller;
 import com.jland.website.model.Participant;
 import com.jland.website.service.ParticipantService;
 import com.jland.website.service.UserService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
