@@ -30,6 +30,7 @@ class Header extends Component {
                 <ul className={headerStyles["menu"]}>
                     <li className={headerStyles["menu__item"]}>
                          <NavLink to="/conferences/upcomingConference" 
+                         exact
                          className={headerStyles["menu__link"]}
                          activeClassName={headerStyles["menu__link--active"]}>Home</NavLink>
                     </li>
@@ -40,12 +41,14 @@ class Header extends Component {
                          activeClassName={headerStyles["menu__link--active"]}>Apply for presentation</NavLink> */}
 
                         <NavLink to="" 
-                         className={headerStyles["menu__link"]}
+                            exact
+                            className={headerStyles["menu__link"]}
                          >Apply for presentation</NavLink>
 
                     </li>
                     <li className={headerStyles["menu__item"]}>
                         <NavLink to={`/conferences/upcomingConference/participants`}
+                            exact
                             className={headerStyles["menu__link"]}
                             activeClassName={headerStyles["menu__link--active"]}>Participants</NavLink>
                     </li>
