@@ -11,8 +11,8 @@
                                 FROM jland_site.event e
                                 LEFT JOIN jland_site.presentation p ON p.event_id = e.id
                                 LEFT JOIN jland_site.user u ON u.id = p.user_id
-                                where e.conference_id = :conference_id
-                                order by e.event_order asc;"/>
+                                WHERE e.conference_id = :conference_id
+                                ORDER BY e.event_order asc;"/>
     </bean>
 
 </beans>

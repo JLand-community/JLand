@@ -2,9 +2,7 @@ package com.jland.website.repository.mapper;
 
 import com.jland.website.constants.ConferenceAgendaEventType;
 import com.jland.website.model.Event;
-import com.jland.website.model.Presentation;
 import com.jland.website.model.PresentationEvent;
-import com.jland.website.model.User;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;

@@ -1,6 +1,7 @@
 package com.jland.website.service.impl;
 
-import com.jland.website.model.User;
+
+import com.jland.website.model.UserDetailsImpl;
 import com.jland.website.repository.UserRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -28,12 +29,12 @@ class UserServiceImplTest {
     @Test
     void testFindUserByUsernamePositive() throws Exception {
         UserRepository mockUserRepository = mock(UserRepository.class);
-        User user = new User();
+        UserDetailsImpl user = new UserDetailsImpl();
         user.setId(1L);
 
         when(mockUserRepository.findByUsername("UserNameForTest")).thenReturn(Optional.of(user));
         UserServiceImpl userService = new UserServiceImpl(mockUserRepository);
-        User actual = userService.findUserByUsername("UserNameForTest");
+        UserDetailsImpl actual = userService.findUserByUsername("UserNameForTest");
 
         assertEquals(user.getId(), actual.getId());
     }

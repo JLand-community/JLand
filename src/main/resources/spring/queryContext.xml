@@ -6,5 +6,6 @@
 
     <import resource="conferenceQueryContext.xml"/>
     <import resource="eventQueryContext.xml"/>
-
+    <import resource="presentationQueryContext.xml"/>
+    <import resource="userQueryContext.xml"/>
 </beans>

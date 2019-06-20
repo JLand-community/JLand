@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
+
 public class LocalTimeSerializer extends StdSerializer<LocalTime>{
 
     public LocalTimeSerializer() {
@@ -16,6 +17,6 @@ public class LocalTimeSerializer extends StdSerializer<LocalTime>{
 
     @Override
     public void serialize(LocalTime localTime, JsonGenerator jsonGenerator, SerializerProvider serializerProvider) throws IOException {
-        jsonGenerator.writeString(localTime.format(DateTimeFormatter.ofPattern("HH:mm")));
+        jsonGenerator.writeString(localTime.format(DateTimeFormatter.ofPattern("HH:mm a")));
     }
 }

@@ -2,14 +2,13 @@ import axios from 'axios';
 import {
     AUTHENTICATED,
     LOGOUT,
-    GET_USER
+    UPDATE_USER,
 } from './type';
-import {apiUrl} from '../../util/network';
 
 export const login = (user, history) => async dispatch => {
     axios.defaults.withCredentials = true;
     try {
-        const response = await axios.post(apiUrl('/login'),
+        const response = await axios.post('/login',
             getFormData(user),
             {headers: {'Content-Type': 'multipart/form-data'}}
         );
@@ -24,11 +23,10 @@ export const login = (user, history) => async dispatch => {
                 type: AUTHENTICATED,
                 payload: authInfo
             });
-            console.log("user actions login ---1")
+           
             history.push("/conferences/upcomingConference");
-            console.log("user actions login ---2 after history.push(/conferences/upcomingConference);")
+            
         }
-
 
     } catch (error) {
         console.log("login errors---", error);
@@ -36,27 +34,11 @@ export const login = (user, history) => async dispatch => {
 
 };
 
-export const getUser = (username, confetenceId) => dispatch => {
-
-        const currentUser = {
-            id: "1",
-            lastName: "lastName",
-            firstName: "firstName",
-            photo: "default.png",
-            isParticipated: false,
-        }
-            dispatch({
-                type: GET_USER,
-                payload: currentUser
-            });
-
-}
-
 export const logout = () => async dispatch => {
 
     axios.defaults.withCredentials = true;
     try {
-        const response = await axios.post(apiUrl('/logout'));
+        const response = await axios.post('/logout');
         console.log(response);
         if (response.status === 200) {
             console.log("Logout successfull");
@@ -71,6 +53,59 @@ export const logout = () => async dispatch => {
         console.log(error);
     }
 };
+
+export const getUser = (username, conferenceId) => async dispatch => {
+
+    axios.defaults.withCredentials = true;
+    try {
+        const response = await axios.get(`/conferences/${conferenceId}/user/${username}`);
+        console.log("getUser---", response.data);
+            dispatch({
+                type: UPDATE_USER,
+                payload: response.data
+            });
+
+                    
+    } catch (error) {
+        console.log("getUser errors---", error);
+    }
+
+}
+
+export const register = (userId, conferenceId) => async dispatch => {
+    axios.defaults.withCredentials = true;
+    try {
+        const response = await axios.post(`/conferences/${conferenceId}/user/${userId}/participate`);
+        console.log("register---", response.data);
+            dispatch({
+                type: UPDATE_USER,
+                payload: response.data
+            });
+
+                    
+    } catch (error) {
+        console.log("register errors---", error);
+    }
+
+}
+
+export const unregister = (userId, conferenceId) => async dispatch => {
+    axios.defaults.withCredentials = true;
+    try {
+        const response = await axios.post(`/conferences/${conferenceId}/user/${userId}/notParticipate`);
+        console.log("unregister---", response.data);
+            dispatch({
+                type: UPDATE_USER,
+                payload: response.data
+            });
+
+                    
+    } catch (error) {
+        console.log("unregister errors---", error);
+    }
+}
+
+
 
 const getFormData = (user) => {
     let form = new FormData();

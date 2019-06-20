@@ -5,16 +5,16 @@
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="getConferenceByIdSql" class="java.lang.String">
-        <constructor-arg value="select id, description, date, address
-                                from jland_site.conference
-                                where id = :id;"/>
+        <constructor-arg value="SELECT id, description, date, address
+                                FROM jland_site.conference
+                                WHERE id = :id;"/>
     </bean>
 
     <bean id="getUpcomingConferenceByMaxIdSql" class="java.lang.String">
-        <constructor-arg value="select id, description, date, address
-                                from jland_site.conference
-                                where id = (select max(id)
-                                            from jland_site.conference);"/>
+        <constructor-arg value="SELECT id, description, date, address
+                                FROM jland_site.conference
+                                WHERE id = (SELECT max(id)
+                                            FROM jland_site.conference);"/>
     </bean>
 
 </beans>

@@ -2,9 +2,7 @@ package com.jland.website.web.controller;
 
 
 import com.jland.website.model.Event;
-import com.jland.website.model.Presentation;
 import com.jland.website.model.PresentationEvent;
-import com.jland.website.model.User;
 import com.jland.website.service.EventService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -57,13 +55,13 @@ class EventControllerTest {
 
         PresentationEvent presentationEvent = new PresentationEvent();
         presentationEvent.setId(2L);
-        presentationEvent.setType("Presentation");
-        presentationEvent.setName("Presentation name");
+        presentationEvent.setType("PresentationPlan");
+        presentationEvent.setName("PresentationPlan name");
         presentationEvent.setStartTime(LocalTime.of(11, 45));
         presentationEvent.setEndTime(LocalTime.of(13, 0));
         presentationEvent.setOrder(2);
         presentationEvent.setPresentationId(21L);
-        presentationEvent.setPresentationName("Presentation name");
+        presentationEvent.setPresentationName("PresentationPlan name");
         presentationEvent.setUserLastName("User Last Name");
         presentationEvent.setUserFirstName("User First Name");
 

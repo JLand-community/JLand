@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i');
+@import url('https://fonts.googleapis.com/css?family=Plaster');
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: white;
+    font-family: "Open Sans", "Arial", sans-serif;
+}
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /*header*/
+    --logo-font: 'Plaster', cursive;
+
+    /*date and place*/
+    --date-place-background: rgba(0, 0, 0, .1);
+
+    /*agenda*/
+    --agenda-background: rgba(0, 0, 0, .15);
+    /*footer*/
+    --background-footer: black;
+    /*button-icon*/
+    --button-color: rgba(0, 104, 255, 0.08);
+
+    /*link-color*/
+    --link-color: #bfbfbf;
+
+    --background-toggle: rgba(69, 164, 227, 0.26);
+    --header-background: black;
+    --color-font-dark: rgba(0, 18, 41, 1);
+
+    --header-footer-logo-color: #bfbfbf;
+
+}
+
+i {
+    font-size: 35px;
+    color: white;
+    opacity: 1;
+}
+
+i:active {
+    opacity: 0.75;
+}
+
+/*common button's properties */
+button:hover {
+    cursor: pointer;
+    opacity: 0.9;
+}
+
+button:active {
+    opacity: 1;
+}
+
+button:focus {
+    outline: 0;
+}
+
+
+/*layout of main page blocks*/
+.main-grid {
+    display: grid;
+    grid-template-columns: 1fr minmax(50%, 1500px) 1fr;
+    grid-template-rows: 75px auto;
+    grid-gap: 30px;
+}

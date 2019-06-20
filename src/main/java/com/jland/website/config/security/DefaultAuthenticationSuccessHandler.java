@@ -1,7 +1,7 @@
 package com.jland.website.config.security;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.jland.website.service.UserService;
+
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;

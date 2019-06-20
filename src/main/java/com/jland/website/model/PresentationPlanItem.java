@@ -5,16 +5,8 @@ import java.util.Objects;
 public class PresentationPlanItem {
 
     private long id;
-    private String item;
+    private String itemName;
     private int order;
-
-    public PresentationPlanItem() {
-    }
-
-    public PresentationPlanItem(String item, int order) {
-        this.item = item;
-        this.order = order;
-    }
 
     public long getId() {
         return id;
@@ -24,12 +16,12 @@ public class PresentationPlanItem {
         this.id = id;
     }
 
-    public String getItem() {
-        return item;
+    public String getItemName() {
+        return itemName;
     }
 
-    public void setItem(String item) {
-        this.item = item;
+    public void setItemName(String itemName) {
+        this.itemName = itemName;
     }
 
     public int getOrder() {
@@ -58,7 +50,7 @@ public class PresentationPlanItem {
     @Override
     public String toString() {
         return "Point{" +
-                "item='" + item + '\'' +
+                "itemName='" + itemName + '\'' +
                 ", order=" + order +
                 '}';
     }

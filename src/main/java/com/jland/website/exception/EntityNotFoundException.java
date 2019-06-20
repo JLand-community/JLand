@@ -6,7 +6,7 @@ public class EntityNotFoundException extends RuntimeException{
         this(message, null);
     }
 
-    public EntityNotFoundException(String message, Throwable cause) {
+    private EntityNotFoundException(String message, Throwable cause) {
         super(message, cause);
     }
 }

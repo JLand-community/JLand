@@ -1,24 +1,4 @@
-body {
-    background: white;
-    font-family: "Open Sans", "Arial", sans-serif;
-}
 
-*, *::before, *::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    color: black;
-}
-
-:root {
-
-}
-
-.header .logo {
-    grid-column: 2;
-    grid-row: 1;
-    justify-items: start;
-}
 
 .login-grid {
     display: grid;
@@ -71,15 +51,13 @@ body {
     background: white;
 }
 
-.sign-up {
-}
 
 .sign-up, .sign-up:before {
 
     display: none;
 }
 
-form {
+.login__form {
     grid-column: 2;
     grid-row: 2;
 
@@ -98,7 +76,7 @@ form {
 }
 
 @media (max-width: 636px){
-    form {
+    .login__form {
         grid-template-columns: 1% 1fr 1fr 1%;
         grid-gap: 30px;
     }
@@ -134,7 +112,7 @@ form {
 
 
 
-button {
+.login__button {
     grid-column: 2/ span 2;
     grid-row: 4;
     color: black;
@@ -151,11 +129,11 @@ button {
 
 }
 
-form .inputBox {
+.login__form .inputBox {
     position: relative;
 }
 
-form .inputBox input {
+.login__form .inputBox .login__input {
     width: 100%;
     max-width: 500px;
     padding: 10px 0 10px 0;
@@ -170,7 +148,7 @@ form .inputBox input {
     background: transparent;
 }
 
-form .inputBox label {
+.login__form .inputBox .login__label {
     position: absolute;
     top:0;
     left:0;
@@ -181,8 +159,8 @@ form .inputBox label {
     transition: .5s;
 }
 
-form .inputBox input:focus ~ label,
-form .inputBox input:valid ~ label {
+.login__form .inputBox .login__input:focus ~ .login__label,
+.login__form .inputBox .login__input:valid ~ .login__label {
     top: -30px;
     left:0;
     color: #bfbfbf;
@@ -192,7 +170,7 @@ form .inputBox input:valid ~ label {
 /*
 Chrome remove the yellow background on input autocomplete, CSS
 Change the chrome autocomplete CSS style, -webkit-autofill*/
-input:-webkit-autofill {
+.login__input:-webkit-autofill {
     border: none !important;
     -webkit-text-fill-color: black !important;
     background-color: transparent !important;
@@ -222,16 +200,16 @@ input:-webkit-autofill {
     position: absolute;
     left: -9999px;
 }
-[type="checkbox"]:not(:checked) + label,
-[type="checkbox"]:checked + label {
+[type="checkbox"]:not(:checked) + .login__label,
+[type="checkbox"]:checked + .login__label {
     position: relative;
     padding-left: 1.95em;
     cursor: pointer;
 }
 
 /* checkbox aspect */
-[type="checkbox"]:not(:checked) + label:before,
-[type="checkbox"]:checked + label:before {
+[type="checkbox"]:not(:checked) + .login__label:before,
+[type="checkbox"]:checked + .login__label:before {
     content: '';
     position: absolute;
     left: 0; top: 0;
@@ -244,8 +222,8 @@ input:-webkit-autofill {
 
 
 /* checked mark aspect */
-[type="checkbox"]:not(:checked) + label:after,
-[type="checkbox"]:checked + label:after {
+[type="checkbox"]:not(:checked) + .login__label:after,
+[type="checkbox"]:checked + .login__label:after {
     content: '\2713\0020';
     position: absolute;
     top: .15em;
@@ -257,31 +235,31 @@ input:-webkit-autofill {
     font-family: 'Lucida Sans Unicode', 'Arial Unicode MS', Arial;
 }
 /* checked mark aspect changes */
-[type="checkbox"]:not(:checked) + label:after {
+[type="checkbox"]:not(:checked) + .login__label:after {
     opacity: 0;
     transform: scale(0);
 }
-[type="checkbox"]:checked + label:after {
+[type="checkbox"]:checked + .login__label:after {
     opacity: 1;
     transform: scale(1);
 }
 /* disabled checkbox */
-[type="checkbox"]:disabled:not(:checked) + label:before,
-[type="checkbox"]:disabled:checked + label:before {
+[type="checkbox"]:disabled:not(:checked) + .login__label:before,
+[type="checkbox"]:disabled:checked + .login__label:before {
     box-shadow: none;
     border-color: #bbb;
     background-color: #ddd;
 }
-[type="checkbox"]:disabled:checked + label:after {
+[type="checkbox"]:disabled:checked + .login__label:after {
     color: #999;
 }
-[type="checkbox"]:disabled + label {
+[type="checkbox"]:disabled + .login__label {
     color: #aaa;
 }
 
 
 /* hover style just for information */
-label:hover:before {
+.login__label:hover:before {
     border: 2px solid grey!important;
 }
 
