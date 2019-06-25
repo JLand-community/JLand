@@ -7,6 +7,7 @@ import {
 
 export const getAgendaEvents = (conferenceId) => async dispatch => {
     axios.defaults.withCredentials = true;
+    axios.defaults.baseURL = "/api";
     try {
         const response = await axios.get(`/conferences/${conferenceId}/agendaEvents`);
         console.log("getAgendaEvents---", response.data);
@@ -27,6 +28,7 @@ export const clearAgendaEvents = () => dispatch => {
 
 export const getPresentationPlan = (presentationId) => async dispatch => {
     axios.defaults.withCredentials = true;
+    axios.defaults.baseURL = "/api";
     try {
         const response = await axios.get(`/presentations/${presentationId}/presentationPlan`);
         console.log("getPresentationPlan---", response.data);

@@ -13,6 +13,9 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
+import java.util.Locale;
 
 import static org.hamcrest.Matchers.is;
 import static org.mockito.Mockito.when;
@@ -52,7 +55,10 @@ class ConferenceControllerTest {
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("id", is(1)))
-                .andExpect(jsonPath("date", is(conference.getDate().toString())))
+                .andExpect(jsonPath("date", is(
+                        DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL).withLocale(Locale.ENGLISH)
+                                .format(conference.getDate())
+                        )))
                 .andExpect(jsonPath("description", is(conference.getDescription())))
                 .andExpect(jsonPath("address", is(conference.getAddress())));
     }
@@ -72,7 +78,9 @@ class ConferenceControllerTest {
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("id", is(1)))
-                .andExpect(jsonPath("date", is(conference.getDate().toString())))
+                .andExpect(jsonPath("date",
+                        is(DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL).withLocale(Locale.ENGLISH)
+                                .format(conference.getDate()))))
                 .andExpect(jsonPath("description", is(conference.getDescription())))
                 .andExpect(jsonPath("address", is(conference.getAddress())));
     }

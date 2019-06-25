@@ -7,6 +7,7 @@ import {
 
 export const login = (user, history) => async dispatch => {
     axios.defaults.withCredentials = true;
+    axios.defaults.baseURL = "/api";
     try {
         const response = await axios.post('/login',
             getFormData(user),
@@ -34,29 +35,34 @@ export const login = (user, history) => async dispatch => {
 
 };
 
-export const logout = () => async dispatch => {
+export const logout = (history) => async dispatch => {
 
     axios.defaults.withCredentials = true;
+    axios.defaults.baseURL = "/api";
     try {
         const response = await axios.post('/logout');
-        console.log(response);
-        if (response.status === 200) {
+
+        console.log("/logout response---", response);
+
+       if (response.status === 200) {
             console.log("Logout successfull");
             dispatch({
-                type: LOGOUT,
-                payload: {username: "", role: "", loggedIn: false}
+                type: LOGOUT
             });
         }
 
+        history.push("/login");
+
 
     } catch (error) {
-        console.log(error);
+        console.log("Logout errors---", error);
     }
 };
 
 export const getUser = (username, conferenceId) => async dispatch => {
 
     axios.defaults.withCredentials = true;
+    axios.defaults.baseURL = "/api";
     try {
         const response = await axios.get(`/conferences/${conferenceId}/user/${username}`);
         console.log("getUser---", response.data);
@@ -74,6 +80,7 @@ export const getUser = (username, conferenceId) => async dispatch => {
 
 export const register = (userId, conferenceId) => async dispatch => {
     axios.defaults.withCredentials = true;
+    axios.defaults.baseURL = "/api";
     try {
         const response = await axios.post(`/conferences/${conferenceId}/user/${userId}/participate`);
         console.log("register---", response.data);
@@ -91,6 +98,7 @@ export const register = (userId, conferenceId) => async dispatch => {
 
 export const unregister = (userId, conferenceId) => async dispatch => {
     axios.defaults.withCredentials = true;
+    axios.defaults.baseURL = "/api";
     try {
         const response = await axios.post(`/conferences/${conferenceId}/user/${userId}/notParticipate`);
         console.log("unregister---", response.data);

@@ -6,6 +6,7 @@ import {
 
 export const getAllParticipants = (conferenceId) => async dispatch => {
     axios.defaults.withCredentials = true;
+    axios.defaults.baseURL = "/api";
     try {
         const response = await axios.get(`/conferences/${conferenceId}/participants`);
         console.log("getAllParticipants---", response.data);

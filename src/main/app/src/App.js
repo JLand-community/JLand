@@ -31,7 +31,7 @@ class App extends Component {
                       </Switch>
                     ) : (
                         <div className="main-grid">
-                            <Header/>
+                            <Header history={history}/>
 
                             <Switch>
                                 <Route exact path="/conferences/upcomingConference" component={Home} />

@@ -10,9 +10,9 @@ export default function (state = initialState, action) {
         case AUTHENTICATED:
             return {...state, authInfo: action.payload };
         case LOGOUT:
-            return {authInfo: action.payload, info: {}};
+            return {...state, authInfo: {}, info: {}};
         case UPDATE_USER:
-            return {...state, info: action.payload};                                
+            return {...state, info: action.payload};                             
         default:
             return state;
     }

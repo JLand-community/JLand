@@ -53,7 +53,7 @@ class EventMapperTest {
         /*Agenda item is a presentation*/
         when(resultSet.getLong("event_id")).thenReturn(100L);
         when(resultSet.getString("name")).thenReturn("PresentationName");
-        when(resultSet.getString("type")).thenReturn("PresentationPlan");
+        when(resultSet.getString("type")).thenReturn("Presentation");
         when(resultSet.getTime("start_time")).thenReturn(Time.valueOf(LocalTime.of(11, 0)));
         when(resultSet.getTime("end_time")).thenReturn(Time.valueOf(LocalTime.of(12, 0)));
         when(resultSet.getString("first_name")).thenReturn("FirstName");
@@ -66,7 +66,7 @@ class EventMapperTest {
 
         Assertions.assertEquals(100L, event.getId());
         Assertions.assertEquals("PresentationName", event.getName());
-        Assertions.assertEquals("PresentationPlan", event.getType());
+        Assertions.assertEquals("Presentation", event.getType());
         Assertions.assertEquals(LocalTime.of(11, 0), event.getStartTime());
         Assertions.assertEquals(LocalTime.of(12, 0), event.getEndTime());
         Assertions.assertEquals(1L, event.getPresentationId());

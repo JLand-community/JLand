@@ -1,4 +1,4 @@
-import {GET_AGENDA_EVENTS, CLEAR_AGENDA_EVENTS, GET_PRESENTATION_PLAN} from '../actions/type';
+import {GET_AGENDA_EVENTS, CLEAR_AGENDA_EVENTS, GET_PRESENTATION_PLAN, LOGOUT} from '../actions/type';
 
 
 const initialState = [];
@@ -9,6 +9,9 @@ export default function (state = initialState, action) {
             return action.payload;
         case CLEAR_AGENDA_EVENTS:
             return [];
+        case LOGOUT:
+            return [];    
+
         case GET_PRESENTATION_PLAN:
             return state.map(event => {
                    if(event.type === "Presentation" && event.presentationId === action.payload.presentationId) {

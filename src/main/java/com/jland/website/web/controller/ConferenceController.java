@@ -9,7 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(value = {"/conferences"})
+@RequestMapping(value = {"/api/conferences"})
 public class ConferenceController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ConferenceController.class);

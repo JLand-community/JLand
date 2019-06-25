@@ -5,6 +5,7 @@ import {
 
 export const getUpcomingConference = () => async dispatch => {
     axios.defaults.withCredentials = true;
+    axios.defaults.baseURL = "/api";
     try {
         const response = await axios.get('/conferences/upcomingConference');
         

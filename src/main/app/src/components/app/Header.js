@@ -9,8 +9,15 @@ import {Role} from '../../util/roles';
 
 import {NavLink} from 'react-router-dom'
 
+import {logout} from '../../handling/actions/userActions';
+
 
 class Header extends Component {
+
+    onSubmitLogout = (e) => {
+        e.preventDefault();
+        this.props.logout(this.props.history);
+    }
 
     render () {
 
@@ -80,6 +87,7 @@ class Header extends Component {
 Header.prototypes = {
     currentUserRole: PropTypes.string.isRequired,
     user: PropTypes.object.isRequired,
+    logout: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = store => ({
@@ -87,4 +95,4 @@ const mapStateToProps = store => ({
     user: store.user.info, 
 })
 
-export default connect(mapStateToProps) (Header);
+export default connect(mapStateToProps, {logout}) (Header);

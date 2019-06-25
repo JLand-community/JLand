@@ -15,6 +15,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -78,15 +79,15 @@ class EventControllerTest {
                 .andExpect(jsonPath("$[0].id", is(1)))
                 .andExpect(jsonPath("$[0].type", is(event.getType())))
                 .andExpect(jsonPath("$[0].name", is(event.getName())))
-                .andExpect(jsonPath("$[0].startTime", is(event.getStartTime().toString())))
-                .andExpect(jsonPath("$[0].endTime", is(event.getEndTime().toString())))
+                .andExpect(jsonPath("$[0].startTime", is(event.getStartTime().format(DateTimeFormatter.ofPattern("HH:mm a")))))
+                .andExpect(jsonPath("$[0].endTime", is(event.getEndTime().format(DateTimeFormatter.ofPattern("HH:mm a")))))
                 .andExpect(jsonPath("$[0].order", is(event.getOrder())))
 
                 .andExpect(jsonPath("$[1].id", is(2)))
                 .andExpect(jsonPath("$[1].type", is(presentationEvent.getType())))
                 .andExpect(jsonPath("$[1].name", is(presentationEvent.getName())))
-                .andExpect(jsonPath("$[1].startTime", is(presentationEvent.getStartTime().toString())))
-                .andExpect(jsonPath("$[1].endTime", is(presentationEvent.getEndTime().toString())))
+                .andExpect(jsonPath("$[1].startTime", is(presentationEvent.getStartTime().format(DateTimeFormatter.ofPattern("HH:mm a")))))
+                .andExpect(jsonPath("$[1].endTime", is(presentationEvent.getEndTime().format(DateTimeFormatter.ofPattern("HH:mm a")))))
                 .andExpect(jsonPath("$[1].order", is(presentationEvent.getOrder())))
                 .andExpect(jsonPath("$[1].presentationId", is(21)))
                 .andExpect(jsonPath("$[1].presentationName", is(presentationEvent.getPresentationName())))

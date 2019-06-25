@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-@RequestMapping("/presentations/")
+@RequestMapping("/api/presentations/")
 public class PresentationController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ConferenceController.class);
