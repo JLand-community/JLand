@@ -73,7 +73,7 @@ class EventControllerTest {
         //WHEN
         when(eventService.getAllByConferenceId(1L)).thenReturn(list);
         //THEN
-        mockMvc.perform(get("/conferences/1/agendaEvents").contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
+        mockMvc.perform(get("/api/conferences/1/agendaEvents").contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$[0].id", is(1)))

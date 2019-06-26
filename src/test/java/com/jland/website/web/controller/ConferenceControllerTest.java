@@ -51,7 +51,7 @@ class ConferenceControllerTest {
         //WHEN
         when(conferenceService.getById(1L)).thenReturn(conference);
         //THEN
-        mockMvc.perform(get("/conferences/1").contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
+        mockMvc.perform(get("/api/conferences/1").contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("id", is(1)))
@@ -74,7 +74,7 @@ class ConferenceControllerTest {
         //WHEN
         when(conferenceService.getUpcomingConference()).thenReturn(conference);
         //THEN
-        mockMvc.perform(get("/conferences/upcomingConference").contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
+        mockMvc.perform(get("/api/conferences/upcomingConference").contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("id", is(1)))
