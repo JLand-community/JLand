@@ -1,7 +1,5 @@
 package com.jland.website.service.impl;
 
-import com.jland.website.model.User;
-import com.jland.website.model.UserDetailsImpl;
 import com.jland.website.service.UserService;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -19,7 +17,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userService.findUserByUsername(username);
-        return new UserDetailsImpl(user);
+        return userService.findUserByUsername(username);
     }
 }

@@ -1,5 +1,8 @@
 package com.jland.website.model;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.jland.website.model.serializer.LocalTimeSerializer;
+
 import java.time.LocalTime;
 import java.util.Objects;
 
@@ -8,10 +11,11 @@ public class Event {
     private long id;
     private String name;
     private String type;
+    @JsonSerialize(using = LocalTimeSerializer.class)
     private LocalTime startTime;
+    @JsonSerialize(using = LocalTimeSerializer.class)
     private LocalTime endTime;
     private int order;
-    private Presentation presentation;
 
     public long getId() {
         return id;
@@ -61,13 +65,6 @@ public class Event {
         this.order = order;
     }
 
-    public Presentation getPresentation() {
-        return presentation;
-    }
-
-    public void setPresentation(Presentation presentation) {
-        this.presentation = presentation;
-    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -85,12 +82,11 @@ public class Event {
 
     @Override
     public String toString() {
-        return "Event{" +
-                ", name='" + name + '\'' +
+        return "Event:" +
+                " name='" + name + '\'' +
                 ", type='" + type + '\'' +
                 ", startTime=" + startTime +
                 ", endTime=" + endTime +
-                ", order=" + order +
-                '}';
+                ", order=" + order ;
     }
 }

@@ -1,42 +1,31 @@
-
 package com.jland.website.web.controller;
 
-import com.jland.website.service.PresentationPlanService;
 import com.jland.website.service.PresentationService;
-import com.jland.website.web.dto.PresentationDto;
-import com.jland.website.web.dto.PresentationPlanDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
 
 @RestController
-@RequestMapping(value = "/conferences/{conferenceId}/presentations", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+@RequestMapping("/api/presentations/")
 public class PresentationController {
-    private static final Logger LOGGER = LoggerFactory.getLogger(PresentationController.class);
 
-    private final PresentationService presentationService;
-    private final PresentationPlanService presentationPlanService;
+    private static final Logger LOGGER = LoggerFactory.getLogger(ConferenceController.class);
 
-    public PresentationController(PresentationService presentationService, PresentationPlanService presentationPlanService) {
+    private PresentationService presentationService;
+
+    public PresentationController(PresentationService presentationService) {
         this.presentationService = presentationService;
-        this.presentationPlanService = presentationPlanService;
     }
 
-    @RequestMapping(method = RequestMethod.GET)
-    public ResponseEntity<List<PresentationDto>> getAllByConferenceId(@PathVariable("conferenceId") Long conferenceId) {
-        LOGGER.info("Getting all presentations by conference Id = {}", conferenceId);
-        return new ResponseEntity<>(presentationService.getAllByConferenceId(conferenceId), HttpStatus.OK);
-    }
-
-    @RequestMapping(value = "/{presentationId}/plan", method = RequestMethod.GET)
-    public ResponseEntity<List<PresentationPlanDto>> getPresentationPlans(@PathVariable("presentationId") Long presentationId) {
-        LOGGER.info("Get list of presentation plans by presentationId = {}", presentationId);
-        return new ResponseEntity<>(presentationPlanService.getAllByPresentationId(presentationId), HttpStatus.OK);
+    @GetMapping("/{presentationId}/presentationPlan")
+    public ResponseEntity<?> getPresentationPlan(@PathVariable Long presentationId) {
+        LOGGER.info("Request to retrieve presentation plan by presentation id {}", presentationId);
+        return new ResponseEntity<>(presentationService.getPresentationPlan(presentationId), HttpStatus.OK);
     }
 }
-

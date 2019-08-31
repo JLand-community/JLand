@@ -19,13 +19,13 @@ class PresentationPlanItemMapperTest {
     private ResultSet resultSet;
 
     @Test
-    public void mapRow() throws SQLException {
+    void mapRow() throws SQLException {
         // Given
         PresentationPlanItem presentationPlanItem = new PresentationPlanItem();
         presentationPlanItem.setId(1L);
-        presentationPlanItem.setItem("point");
+        presentationPlanItem.setItemName("point");
         given(resultSet.getLong("id")).willReturn(presentationPlanItem.getId());
-        given((resultSet.getString("point"))).willReturn(presentationPlanItem.getItem());
+        given((resultSet.getString("point"))).willReturn(presentationPlanItem.getItemName());
         PresentationPlanMapper mapper = new PresentationPlanMapper();
 
         // When

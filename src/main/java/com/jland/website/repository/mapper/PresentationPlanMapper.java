@@ -12,7 +12,8 @@ public class PresentationPlanMapper implements RowMapper<PresentationPlanItem> {
     public PresentationPlanItem mapRow(ResultSet resultSet, int i) throws SQLException {
         PresentationPlanItem presentationPlanItem = new PresentationPlanItem();
         presentationPlanItem.setId(resultSet.getLong("id"));
-        presentationPlanItem.setItem(resultSet.getString("point"));
+        presentationPlanItem.setItemName(resultSet.getString("point"));
+        presentationPlanItem.setOrder(resultSet.getInt("item_order"));
         return presentationPlanItem;
     }
 }

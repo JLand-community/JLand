@@ -1,0 +1,267 @@
+
+
+.login-grid {
+    display: grid;
+    grid-template-rows: 75px 75px 1fr;
+
+}
+
+.login {
+    grid-row: 3;
+
+    display: grid;
+    grid-template-columns: 1fr minmax(30%, 594px) 1fr;
+}
+
+.login__title {
+    grid-column: 2;
+
+    display: grid;
+    grid-gap: 25px;
+    grid-template-columns: 150px 150px 1fr;
+    align-items: center;
+
+    position: relative;
+    transform: translateY(2px);
+
+}
+
+.title {
+    grid-column: 1;
+
+}
+
+.sign-up {
+    grid-column: 2;
+
+}
+
+.title, .sign-up {
+    border-radius: 10px 10px 0px 0;
+
+    text-align: center;
+    position: relative;
+    padding: 15px;
+
+    border: 1px solid black;
+    border-bottom: 1px solid white;
+}
+
+.title {
+    background: white;
+}
+
+
+.sign-up, .sign-up:before {
+
+    display: none;
+}
+
+.login__form {
+    grid-column: 2;
+    grid-row: 2;
+
+    background: transparent;
+
+    box-shadow: 10px 10px 5px -5px black;
+
+    border-radius: 0px 10px 10px 10px;
+    border: 1px solid black;
+    display: grid;
+    grid-template-columns: 50px 1fr 1fr 50px;
+    align-items: center;
+
+    grid-gap: 40px;
+    padding: 50px 0;
+}
+
+@media (max-width: 636px){
+    .login__form {
+        grid-template-columns: 1% 1fr 1fr 1%;
+        grid-gap: 30px;
+    }
+}
+
+
+
+.usernameBox {
+    grid-column: 2/ span 2;
+    grid-row: 1;
+    border-bottom: 1px solid grey;
+    margin-top: 10px;
+    }
+
+.passwordBox {
+    grid-column: 2/ span 2;
+    grid-row: 2;
+    border-bottom: 1px solid grey;
+    margin-top: 10px;
+}
+
+.checkBoxInput {
+    grid-column: 2;
+    grid-row: 3;
+    justify-self: start;
+}
+
+.forgot-password-link {
+    grid-column: 3;
+    grid-row: 3;
+    justify-self: end;
+}
+
+
+
+.login__button {
+    grid-column: 2/ span 2;
+    grid-row: 4;
+    color: black;
+
+}
+
+
+@media (max-width: 360px) {
+    .forgot-password-link {
+        grid-column: 2/ span 2;
+        grid-row: 5;
+        justify-self: center;
+    }
+
+}
+
+.login__form .inputBox {
+    position: relative;
+}
+
+.login__form .inputBox .login__input {
+    width: 100%;
+    max-width: 500px;
+    padding: 10px 0 10px 0;
+
+    font-size: 16px;
+    color: black;
+
+    border-radius: 5px;
+    border: none;
+
+    outline: none;
+    background: transparent;
+}
+
+.login__form .inputBox .login__label {
+    position: absolute;
+    top:0;
+    left:0;
+    padding: 10px 0 ;
+    font-size: 16px;
+    color: black;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.login__form .inputBox .login__input:focus ~ .login__label,
+.login__form .inputBox .login__input:valid ~ .login__label {
+    top: -30px;
+    left:0;
+    color: #bfbfbf;
+    font-size: 14px;
+}
+
+/*
+Chrome remove the yellow background on input autocomplete, CSS
+Change the chrome autocomplete CSS style, -webkit-autofill*/
+.login__input:-webkit-autofill {
+    border: none !important;
+    -webkit-text-fill-color: black !important;
+    background-color: transparent !important;
+    /*-webkit-box-shadow: 0 0 0px 10px black inset;*/
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+.login__button
+{
+    padding: 10px 15px 11px ;
+    font-size: 18px ;
+    background-color: black;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: "Open Sans", "Arial", sans-serif;
+    color: white;
+    border-radius: 10px;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+
+/* Base for label styling */
+[type="checkbox"]:not(:checked),
+[type="checkbox"]:checked {
+    position: absolute;
+    left: -9999px;
+}
+[type="checkbox"]:not(:checked) + .login__label,
+[type="checkbox"]:checked + .login__label {
+    position: relative;
+    padding-left: 1.95em;
+    cursor: pointer;
+}
+
+/* checkbox aspect */
+[type="checkbox"]:not(:checked) + .login__label:before,
+[type="checkbox"]:checked + .login__label:before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0;
+    width: 1.25em; height: 1.25em;
+    border: 2px solid #ccc;
+   /* background: #fff;*/
+    border-radius: 4px;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,.1);
+}
+
+
+/* checked mark aspect */
+[type="checkbox"]:not(:checked) + .login__label:after,
+[type="checkbox"]:checked + .login__label:after {
+    content: '\2713\0020';
+    position: absolute;
+    top: .15em;
+    left: .01em;
+    font-size: 2em;
+    line-height: 0;
+    color: black;
+    transition: all .2s;
+    font-family: 'Lucida Sans Unicode', 'Arial Unicode MS', Arial;
+}
+/* checked mark aspect changes */
+[type="checkbox"]:not(:checked) + .login__label:after {
+    opacity: 0;
+    transform: scale(0);
+}
+[type="checkbox"]:checked + .login__label:after {
+    opacity: 1;
+    transform: scale(1);
+}
+/* disabled checkbox */
+[type="checkbox"]:disabled:not(:checked) + .login__label:before,
+[type="checkbox"]:disabled:checked + .login__label:before {
+    box-shadow: none;
+    border-color: #bbb;
+    background-color: #ddd;
+}
+[type="checkbox"]:disabled:checked + .login__label:after {
+    color: #999;
+}
+[type="checkbox"]:disabled + .login__label {
+    color: #aaa;
+}
+
+
+/* hover style just for information */
+.login__label:hover:before {
+    border: 2px solid grey!important;
+}
+
+
+

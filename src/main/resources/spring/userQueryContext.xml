@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="findUserByUsernameSql" class="java.lang.String">
+        <constructor-arg value="SELECT id, username, password, user_role
+                                FROM jland_site.user
+                                WHERE username = :username"/>
+    </bean>
+
+    <bean id="findUserByUsernameAndConferenceIdSql" class="java.lang.String">
+        <constructor-arg value="SELECT
+                                  u.id,
+                                  u.first_name,
+                                  u.last_name,
+                                  u.photo,
+                                  u.user_role,
+                                  u.username,
+                                  u.password,
+                                  p.id participant_id
+                                FROM jland_site.user u
+                                LEFT JOIN jland_site.participant p
+                                ON u.id = p.user_id
+                                AND p.conference_id = :conference_id
+                                WHERE u.username = :username"/>
+    </bean>
+
+    <bean id="findUserByIdAndConferenceIdSql" class="java.lang.String">
+        <constructor-arg value="SELECT
+                                  u.id,
+                                  u.first_name,
+                                  u.last_name,
+                                  u.photo,
+                                  u.user_role,
+                                  u.username,
+                                  u.password,
+                                  p.id participant_id
+                                FROM jland_site.user u
+                                LEFT JOIN jland_site.participant p
+                                ON u.id = p.user_id
+                                AND p.conference_id = :conference_id
+                                WHERE u.id = :id"/>
+    </bean>
+
+    <bean id="getAllByConferenceIdSql" class="java.lang.String">
+        <constructor-arg value="SELECT
+                                  u.id,
+                                  u.first_name,
+                                  u.last_name,
+                                  u.photo,
+                                  u.user_role,
+                                  u.username,
+                                  u.password,
+                                  p.id participant_id
+                                FROM jland_site.user u
+                                JOIN jland_site.participant p
+                                ON u.id = p.user_id
+                                AND p.conference_id = :conference_id"/>
+    </bean>
+
+    <bean id="addParticipantSql" class="java.lang.String">
+        <constructor-arg value="INSERT INTO jland_site.participant (user_id, conference_id)
+                                VALUES(:userId, :conferenceId);"/>
+    </bean>
+
+    <bean id="removeParticipantSql" class="java.lang.String">
+        <constructor-arg value="DELETE FROM jland_site.participant
+                                WHERE user_id = :userId
+                                AND conference_id = :conferenceId;"/>
+    </bean>
+
+</beans>

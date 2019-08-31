@@ -1,7 +1,8 @@
 package com.jland.website.repository.mapper;
 
+import com.jland.website.constants.ConferenceAgendaEventType;
 import com.jland.website.model.Event;
-import com.jland.website.model.Presentation;
+import com.jland.website.model.PresentationEvent;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;
@@ -12,7 +13,23 @@ public class EventMapper implements RowMapper<Event> {
 
     @Override
     public Event mapRow(ResultSet resultSet, int i) throws SQLException {
-        Event event = new Event();
+
+        String type = resultSet.getString("type").toUpperCase();
+
+        if(!ConferenceAgendaEventType.PRESENTATION.name().equals(type)){
+            return getEvent(resultSet, new Event());
+        }
+
+        PresentationEvent presentationEvent = (PresentationEvent) getEvent(resultSet, new PresentationEvent()) ;
+        presentationEvent.setPresentationId(resultSet.getLong("presentation_id"));
+        presentationEvent.setPresentationName(resultSet.getString("presentation_name"));
+        presentationEvent.setUserFirstName(resultSet.getString("first_name"));
+        presentationEvent.setUserLastName(resultSet.getString("last_name"));
+        return presentationEvent;
+
+    }
+
+    private Event getEvent(ResultSet resultSet, Event event) throws SQLException {
         event.setId(resultSet.getLong("event_id"));
         event.setName(resultSet.getString("name"));
         event.setType(resultSet.getString("type"));
@@ -20,17 +37,10 @@ public class EventMapper implements RowMapper<Event> {
         event.setStartTime(startTime);
         LocalTime endTime = resultSet.getTime("end_time").toLocalTime();
         event.setEndTime(endTime);
-
-        Presentation presentation = getPresentation(resultSet, i);
-
-        event.setPresentation(presentation);
+        event.setOrder(resultSet.getInt("event_order"));
         return event;
     }
 
-    private Presentation getPresentation(ResultSet resultSet, int i) throws SQLException {
-        PresentationMapper presentationMapper = new PresentationMapper();
-        return presentationMapper.mapRow(resultSet,i);
-    }
 
 
 }

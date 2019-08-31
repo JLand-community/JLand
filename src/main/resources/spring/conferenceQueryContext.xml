@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="getConferenceByIdSql" class="java.lang.String">
+        <constructor-arg value="SELECT id, description, date, address
+                                FROM jland_site.conference
+                                WHERE id = :id;"/>
+    </bean>
+
+    <bean id="getUpcomingConferenceByMaxIdSql" class="java.lang.String">
+        <constructor-arg value="SELECT id, description, date, address
+                                FROM jland_site.conference
+                                WHERE id = (SELECT max(id)
+                                            FROM jland_site.conference);"/>
+    </bean>
+
+</beans>

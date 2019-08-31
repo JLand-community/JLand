@@ -29,7 +29,7 @@ VALUES (4, 'Docker', 1, 3);
 
 /*presentation plan, Gradle*/
 INSERT INTO presentation_plan(presentation_id, point, item_order)
-VALUES (1, 'Main aspects of Gradle build tool', 1);
+VALUES (1, 'Main aspects of Gradle public tool', 1);
 INSERT INTO presentation_plan(presentation_id, point, item_order)
 VALUES (1, 'Comparison with Maven: where Maven is weak and Gradle is strong.', 2);
 INSERT INTO presentation_plan(presentation_id, point, item_order)

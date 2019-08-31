@@ -1,15 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<configuration>
-
+<configuration scan="true" scanPeriod="3 seconds">
     <appender name="fileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>..\logs\JLand.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <file>log/log.log</file>
-            <FileNamePattern>log/log_%d{yyyy-MM-dd}.log</FileNamePattern>
+            <FileNamePattern>logs/JLandFullLog_%d{yyyy-MM-dd}.log</FileNamePattern>
             <maxHistory>30</maxHistory>
+            <totalSizeCap>500MB</totalSizeCap>
         </rollingPolicy>
-
         <encoder>
-            <Pattern>%d{HH:mm:ss} %-5level %logger{35} - %msg %n</Pattern>
+            <Pattern>%mdc %d{HH:mm:ss} %-5level [%thread] %logger{35} - %msg %n</Pattern>
         </encoder>
     </appender>
 
@@ -19,9 +17,9 @@
         </encoder>
     </appender>
 
-    <root>
-        <level value="DEBUG" />
+    <root level="DEBUG">
         <appender-ref ref="fileAppender"/>
         <appender-ref ref="consoleLog"/>
+
     </root>
 </configuration>
