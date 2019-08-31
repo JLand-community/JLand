@@ -1,4 +1,4 @@
-package com.jland.website.web.hendler;
+package com.jland.website.web.handler;
 
 import com.jland.website.exception.EntityNotFoundException;
 import org.slf4j.LoggerFactory;

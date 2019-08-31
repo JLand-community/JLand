@@ -8,11 +8,11 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class PresentationServiceDefault implements PresentationService {
+public class PresentationServiceImpl implements PresentationService {
 
     private final PresentationRepository presentationRepository;
 
-    public PresentationServiceDefault(PresentationRepository presentationRepository) {
+    public PresentationServiceImpl(PresentationRepository presentationRepository) {
         this.presentationRepository = presentationRepository;
     }
 

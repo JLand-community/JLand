@@ -6,11 +6,11 @@ import com.jland.website.service.ParticipantService;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ParticipantServiceIml implements ParticipantService {
+public class ParticipantServiceImpl implements ParticipantService {
 
     private final ParticipantRepository participantRepository;
 
-    public ParticipantServiceIml(ParticipantRepository participantRepository) {
+    public ParticipantServiceImpl(ParticipantRepository participantRepository) {
         this.participantRepository = participantRepository;
     }
 
