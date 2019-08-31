@@ -1,4 +1,4 @@
-/*package com.jland.website.web.filter;
+package com.jland.website.web.filter;
 
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
@@ -44,4 +44,4 @@ public class CorsFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
     }
-}*/
+}
